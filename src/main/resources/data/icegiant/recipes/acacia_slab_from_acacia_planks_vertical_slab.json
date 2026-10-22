@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "icegiant:acacia_planks_vertical_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:acacia_slab"
+  }
+}

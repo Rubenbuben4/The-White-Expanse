@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "icegiant:mud_bricks_vertical_slab"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mud_brick_slab"
+  }
+}

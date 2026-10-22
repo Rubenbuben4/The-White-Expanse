@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "vertical_slab",
+  "ingredients": [
+    {
+      "item": "minecraft:dark_oak_slab"
+    }
+  ],
+  "result": {
+    "item": "icegiant:dark_oak_planks_vertical_slab"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "vertical_slab",
+  "key": {
+    "#": {
+      "item": "minecraft:mangrove_wood"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "icegiant:mangrove_wood_vertical_slab",
+    "count": 6
+  }
+}

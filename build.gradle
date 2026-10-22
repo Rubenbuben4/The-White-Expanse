@@ -1,0 +1,92 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+version = '0.2.72'
+group = 'net.icegiant'
+base { archivesName = 'the-white-expanse' }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'})"
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods { icegiant { source sourceSets.main } }
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods { icegiant { source sourceSets.main } }
+        }
+    }
+}
+
+repositories {
+    // Geckolib
+    maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    // Curios
+    maven { url = 'https://maven.theillusivec4.top/' }
+    // Modrinth-gehostete Mods generell über Modrinth Maven
+    maven { url = 'https://api.modrinth.com/maven' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+
+    // Animationen für die Ice-Giant-Entity
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.4')
+
+    // Falls Rüstung Slots über Curios statt vanilla Slots laufen soll (optional)
+    // ACHTUNG: aktuell auskommentiert, da "maven.modrinth:curios:5.16.0+1.20.1-forge"
+    // auf keinem der obigen Maven-Repos gefunden wird (Modrinth-Coordinates passen
+    // hier nicht 1:1). Wird im Code aktuell nicht genutzt, daher unkritisch.
+    // compileOnly fg.deobf('maven.modrinth:curios:5.16.0+1.20.1-forge')
+
+    // ---- Soft-Dependencies für Server-Kompatibilität (nur compileOnly, damit der Mod ---
+    // ---- auch ohne diese Mods lädt, siehe compat/-Package für die eigentliche Anbindung) ---
+    // Identity Fix (Morph) - exakte Artifact-ID/Version muss aus deren Modrinth-Seite übernommen werden
+    // compileOnly fg.deobf('maven.modrinth:identity-fix:<version>')
+    // YDM's Weapon Master - für Knockback-/Combat-API
+    // compileOnly fg.deobf('maven.modrinth:ydms-weapon-master:<version>')
+
+    // Nur zum Testen im Dev-Environment mitladen, damit Compat-Code nicht crasht:
+    // runtimeOnly fg.deobf('maven.modrinth:identity-fix:<version>')
+
+    // ---- Mixins (für den Arm-Override, s. Chatverlauf) ----
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, "icegiant.refmap.json"
+    config "icegiant.mixins.json"
+}
+
+jar {
+    manifest.attributes([
+        "MixinConfigs": "icegiant.mixins.json"
+    ])
+    // Lizenz + Credits gehören mit in die fertige Mod-Datei (GPL + Glionox/Epic-Fight-Hinweise)
+    from(rootProject.file('LICENSE'))
+    from(rootProject.file('CREDITS.md'))
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+        minecraft_version: '1.20.1', forge_version: '47.3.0',
+        version: project.version, group: project.group
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/mods.toml']) { expand replaceProperties + [project: project] }
+}

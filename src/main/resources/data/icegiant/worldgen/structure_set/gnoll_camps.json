@@ -1,0 +1,38 @@
+{
+  "structures": [
+    {
+      "structure": "icegiant:gnoll_camp_small",
+      "weight": 6
+    },
+    {
+      "structure": "icegiant:gnoll_camp_large",
+      "weight": 2
+    },
+    {
+      "structure": "icegiant:gnoll_camp_huge",
+      "weight": 2
+    },
+    {
+      "structure": "icegiant:gnoll_camp_taiga_small",
+      "weight": 6
+    },
+    {
+      "structure": "icegiant:gnoll_camp_taiga_large",
+      "weight": 2
+    },
+    {
+      "structure": "icegiant:gnoll_camp_taiga_huge",
+      "weight": 2
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 34,
+    "separation": 12,
+    "salt": 73514027,
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 6
+    }
+  }
+}

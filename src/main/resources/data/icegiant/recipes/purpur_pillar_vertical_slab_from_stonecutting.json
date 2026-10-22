@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:purpur_pillar"
+  },
+  "result": "icegiant:purpur_pillar_vertical_slab",
+  "count": 2
+}

@@ -1,0 +1,149 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.dungeon_door.open": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 1.5,
+      "bones": {
+        "left_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                0,
+                0
+              ]
+            },
+            "1.5": {
+              "vector": [
+                0,
+                90,
+                0
+              ],
+              "easing": "easeInOutSine"
+            }
+          }
+        },
+        "right_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                0,
+                0
+              ]
+            },
+            "1.5": {
+              "vector": [
+                0,
+                -90,
+                0
+              ],
+              "easing": "easeInOutSine"
+            }
+          }
+        }
+      }
+    },
+    "animation.dungeon_door.close": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 1.5,
+      "bones": {
+        "left_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                90,
+                0
+              ]
+            },
+            "1.5": {
+              "vector": [
+                0,
+                0,
+                0
+              ],
+              "easing": "easeInOutSine"
+            }
+          }
+        },
+        "right_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                -90,
+                0
+              ]
+            },
+            "1.5": {
+              "vector": [
+                0,
+                0,
+                0
+              ],
+              "easing": "easeInOutSine"
+            }
+          }
+        }
+      }
+    },
+    "animation.dungeon_door.opened": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.05,
+      "bones": {
+        "left_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                90,
+                0
+              ]
+            }
+          }
+        },
+        "right_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                -90,
+                0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "animation.dungeon_door.closed": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.05,
+      "bones": {
+        "left_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "right_door": {
+          "rotation": {
+            "0.0": {
+              "vector": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "icegiant:item/raw_ice_giant_core"
+  }
+}

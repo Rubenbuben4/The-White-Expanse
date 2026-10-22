@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cracked_deepslate_bricks"
+  },
+  "result": "icegiant:cracked_deepslate_bricks_vertical_slab",
+  "count": 2
+}

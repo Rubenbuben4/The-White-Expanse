@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "vertical_slab",
+  "ingredients": [
+    {
+      "item": "minecraft:bamboo_mosaic_slab"
+    }
+  ],
+  "result": {
+    "item": "icegiant:bamboo_mosaic_vertical_slab"
+  }
+}

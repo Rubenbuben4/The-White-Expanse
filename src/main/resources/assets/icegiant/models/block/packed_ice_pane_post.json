@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_post",
+  "textures": {
+    "pane": "minecraft:block/packed_ice",
+    "edge": "minecraft:block/packed_ice"
+  }
+}

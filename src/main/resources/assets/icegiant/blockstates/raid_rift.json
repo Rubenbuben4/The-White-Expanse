@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "icegiant:block/frost_portal"
+    },
+    "axis=z": {
+      "model": "icegiant:block/frost_portal",
+      "y": 90
+    }
+  }
+}

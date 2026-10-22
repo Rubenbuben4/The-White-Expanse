@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "icegiant:item/frost_flint_and_steel"
+  }
+}

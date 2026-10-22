@@ -1,0 +1,14 @@
+{
+  "type": "icegiant:norway_terrain",
+  "warp": "icegiant:norway/warp",
+  "massif": "icegiant:norway/massif",
+  "ridge": "icegiant:norway/ridge",
+  "valley_main": "icegiant:norway/valley_main",
+  "valley_side": "icegiant:norway/valley_side",
+  "detail": "icegiant:norway/detail",
+  "continent": "icegiant:norway/continent",
+  "continent_detail": "icegiant:norway/continent_detail",
+  "ranges": "icegiant:norway/ranges",
+  "hills": "icegiant:norway/hills",
+  "output": "mountains"
+}

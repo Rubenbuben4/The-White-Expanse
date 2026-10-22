@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_basalt"
+  },
+  "result": "icegiant:polished_basalt_vertical_slab",
+  "count": 2
+}

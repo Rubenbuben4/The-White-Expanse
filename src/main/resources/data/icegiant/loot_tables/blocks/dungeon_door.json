@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "icegiant:dungeon_door"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "icegiant:dungeon_door",
+          "properties": {
+            "part_x": "1",
+            "part_y": "0"
+          }
+        }
+      ]
+    }
+  ]
+}

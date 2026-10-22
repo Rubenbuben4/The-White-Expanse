@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "icegiant:ice_giant_helmet",
+    "icegiant:ice_giant_chestplate",
+    "icegiant:ice_giant_leggings",
+    "icegiant:ice_giant_boots",
+    "minecraft:leather_helmet",
+    "minecraft:leather_chestplate",
+    "minecraft:leather_leggings",
+    "minecraft:leather_boots"
+  ]
+}

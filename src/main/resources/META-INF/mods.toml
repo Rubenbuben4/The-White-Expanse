@@ -1,0 +1,57 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "GPL-3.0-or-later"
+issueTrackerURL = "https://github.com/Rubenbuben4/The-White-Expanse/issues"
+
+[[mods]]
+modId = "icegiant"
+version = "${version}"
+displayName = "The White Expanse"
+displayURL = "https://github.com/Rubenbuben4/The-White-Expanse"
+description = '''
+Ice Giants, their Gnoll warbands and the Frozen Realm - a huge Norwegian-style winter dimension with fjords, rivers, snowstorms, a deep cold sea with iceberg fields and the Crystal Spires. Nordic axes and Giant Rune Swords with ground slam, dash, ground cut and wide sweep, Ice Giant armor, Frost Raids on snowy villages and Gnoll camps in the Overworld.
+Eisriesen, ihre Gnoll-Trupps und das Frozen Realm - eine riesige Winterdimension wie Norwegen mit Fjorden, Fluessen, Schneestuermen, einem tiefen kalten Meer mit Eisberg-Feldern und den Kristallspitzen. Nordische Aexte und Riesen-Runenschwerter mit Bodenschlag, Sturmlauf, Boden-Schnitt und breitem Hieb, Eisriesen-Ruestung, Frost-Ueberfaelle auf Schneedoerfer und Gnoll-Lager in der Oberwelt.
+
+Note: Most of the code was written with Claude (Anthropic's AI) following Rubenbuben4's design and testing. Models, textures, animations, paintings and most sounds are made by humans (Rubenbuben4 and the artists in CREDITS.md) - except a few placeholders made by Claude (see CREDITS.md).
+Hinweis: Der Grossteil des Codes wurde mit Claude (KI von Anthropic) nach Rubenbuben4s Vorgaben und Tests geschrieben. Modelle, Texturen, Animationen, Gemaelde und die meisten Sounds stammen von Menschen (Rubenbuben4 und die Kuenstler in CREDITS.md) - ausser einigen Platzhaltern von Claude (siehe CREDITS.md).
+'''
+authors = "Rubenbuben4"
+credits = "Mod & Idee: Rubenbuben4 | 3D-Modelle & Modell-Texturen: Rubenbuben4 | Code: großteils Claude (Anthropic) | Einige Pixel-Icons von Glionox - schaut euch seine Seite an: https://glionox.itch.io | Bäume im Frozen Realm: Norwegian Pine Trees von Voyde Studios | Gnolle (Modelle, Texturen, Animationen, Sounds): Paket „Kobolds“ von Hibiscus Studios × AnonymousDevs (mit Erlaubnis) | Hütten der Gnoll-Lager: Louisdepoui (mit Erlaubnis) - unterstützt ihn auf Patreon: https://www.patreon.com/cw/Louisdepoui | Inspiriert von Epic Fight (Antikythera Studios) | GeckoLib | Some pixel icons are by Glionox - check out his page: https://glionox.itch.io | Gnolls (models, textures, animations, sounds): 'Kobolds' pack by Hibiscus Studios x AnonymousDevs (used with permission) | Gnoll camp huts by Louisdepoui (used with permission) - support him on Patreon: https://www.patreon.com/cw/Louisdepoui"
+
+[[dependencies.icegiant]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[47,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.icegiant]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.1,1.21)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.icegiant]]
+    modId = "geckolib"
+    mandatory = true
+    versionRange = "[4.4,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+# Optional - Identity (Morph); noch keine eigene Anbindung, nur Ladereihenfolge
+[[dependencies.icegiant]]
+    modId = "identity"
+    mandatory = false
+    versionRange = "[0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+
+# Optional - YDM's Weapon Master (Knockback-Anbindung vorbereitet, aktuell Vanilla-Knockback)
+[[dependencies.icegiant]]
+    modId = "ydm_weaponmaster"
+    mandatory = false
+    versionRange = "[0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+

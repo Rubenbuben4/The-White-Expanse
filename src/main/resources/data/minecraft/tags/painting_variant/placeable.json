@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "icegiant:waterfall",
+    "icegiant:glowing_tree",
+    "icegiant:barn_owl",
+    "icegiant:fox",
+    "icegiant:river_at_dusk",
+    "icegiant:rune_gate",
+    "icegiant:wolf",
+    "icegiant:forest_path",
+    "icegiant:glowing_mushrooms",
+    "icegiant:stag"
+  ]
+}

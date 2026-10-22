@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "icegiant:packed_ice_stairs",
+    "icegiant:packed_ice_slab",
+    "icegiant:packed_ice_wall",
+    "icegiant:packed_ice_fence",
+    "icegiant:packed_ice_pane"
+  ]
+}

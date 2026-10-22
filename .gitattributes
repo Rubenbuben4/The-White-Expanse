@@ -1,0 +1,12 @@
+# Text files are stored with LF; Windows checkouts get CRLF where Git is set up for it.
+* text=auto
+*.bat text eol=crlf
+gradlew text eol=lf
+*.png binary
+*.ogg binary
+*.nbt binary
+*.jar binary
+
+# Disable autocrlf on generated files, they always generate with LF
+src/generated/**/.cache/cache text eol=lf
+src/generated/**/*.json text eol=lf

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cracked_nether_bricks"
+  },
+  "result": "icegiant:cracked_nether_bricks_vertical_slab",
+  "count": 2
+}

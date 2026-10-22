@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "vertical_slab",
+  "ingredients": [
+    {
+      "item": "minecraft:andesite_slab"
+    }
+  ],
+  "result": {
+    "item": "icegiant:andesite_vertical_slab"
+  }
+}

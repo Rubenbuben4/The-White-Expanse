@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "icegiant:block/pale_oak_log",
+    "side": "icegiant:block/pale_oak_log"
+  }
+}

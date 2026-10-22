@@ -1,0 +1,13 @@
+{
+  "type": "icegiant:gnoll_camp",
+  "biomes": [
+    "minecraft:taiga",
+    "minecraft:old_growth_pine_taiga",
+    "minecraft:old_growth_spruce_taiga"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "large": true,
+  "kind": "taiga"
+}

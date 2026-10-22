@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "icegiant:block/pale_oak_slab"
+    },
+    "type=double": {
+      "model": "icegiant:block/pale_oak_planks"
+    },
+    "type=top": {
+      "model": "icegiant:block/pale_oak_slab_top"
+    }
+  }
+}

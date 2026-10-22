@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "icegiant:magic_orb"
+    },
+    {
+      "item": "icegiant:pure_soul_energy"
+    },
+    {
+      "item": "icegiant:ice_giant_core"
+    }
+  ],
+  "result": {
+    "item": "icegiant:frost_flint_and_steel",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "icegiant:block/bone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "icegiant:block/bone_pressure_plate_down"
+    }
+  }
+}

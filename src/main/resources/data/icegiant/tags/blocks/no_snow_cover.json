@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:polished_basalt",
+    "minecraft:basalt",
+    "minecraft:gray_concrete",
+    "minecraft:stone",
+    "minecraft:andesite",
+    "minecraft:tuff",
+    "minecraft:cobblestone",
+    "minecraft:gravel",
+    "minecraft:stone_slab",
+    "minecraft:cobblestone_slab",
+    "minecraft:andesite_slab"
+  ]
+}

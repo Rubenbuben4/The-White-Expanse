@@ -1,0 +1,14 @@
+{
+  "type": "icegiant:gnoll_camp",
+  "biomes": [
+    "minecraft:snowy_plains",
+    "minecraft:snowy_taiga",
+    "minecraft:ice_spikes",
+    "minecraft:grove"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "large": false,
+  "kind": "snow"
+}

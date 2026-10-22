@@ -1,0 +1,420 @@
+{
+  "nordic_axe_swoosh": {
+    "subtitle": "subtitles.icegiant.axe_swoosh",
+    "sounds": [
+      {
+        "name": "icegiant:nordic_axe_swoosh",
+        "stream": false
+      }
+    ]
+  },
+  "nordic_axe_slam_impact": {
+    "subtitle": "subtitles.icegiant.axe_slam_impact",
+    "sounds": [
+      {
+        "name": "icegiant:nordic_axe_slam_impact",
+        "stream": false
+      }
+    ]
+  },
+  "frozen_realm.storm_wind": {
+    "subtitle": "subtitles.icegiant.snowstorm",
+    "sounds": [
+      {
+        "name": "icegiant:frozen_realm_storm/loop_main",
+        "stream": false
+      }
+    ]
+  },
+  "frozen_realm.storm_wind_low": {
+    "sounds": [
+      {
+        "name": "icegiant:frozen_realm_storm/loop_low",
+        "stream": false
+      }
+    ]
+  },
+  "frozen_realm.storm_gust": {
+    "subtitle": "subtitles.icegiant.snowstorm_gust",
+    "sounds": [
+      {
+        "name": "icegiant:frozen_realm_storm/gust_1",
+        "stream": false
+      }
+    ]
+  },
+  "player.heartbeat": {
+    "subtitle": "subtitles.icegiant.heartbeat",
+    "sounds": [
+      {
+        "name": "icegiant:heartbeat",
+        "stream": false
+      }
+    ]
+  },
+  "ice_giant.run_step": {
+    "subtitle": "subtitles.icegiant.ice_giant_run_step",
+    "sounds": [
+      {
+        "name": "icegiant:ice_giant/run_step_1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/run_step_2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/run_step_3",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/run_step_4",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/run_step_5",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/run_step_6",
+        "stream": false
+      }
+    ]
+  },
+  "ice_giant.walk_step": {
+    "subtitle": "subtitles.icegiant.ice_giant_walk_step",
+    "sounds": [
+      {
+        "name": "icegiant:ice_giant/walk_step_1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/walk_step_2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/walk_step_3",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/walk_step_4",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/walk_step_5",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/walk_step_6",
+        "stream": false
+      }
+    ]
+  },
+  "ice_giant.hurt": {
+    "subtitle": "subtitles.icegiant.ice_giant_hurt",
+    "sounds": [
+      {
+        "name": "icegiant:ice_giant/hurt_1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_3",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_4",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_5",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_6",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_7",
+        "stream": false
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_8",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.idle": {
+    "subtitle": "subtitles.icegiant.gnoll_idle",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/idle1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/melee/idle2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/melee/idle3",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.hurt": {
+    "subtitle": "subtitles.icegiant.gnoll_hurt",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/hurt1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/melee/hurt2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/melee/hurt3",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.death": {
+    "subtitle": "subtitles.icegiant.gnoll_death",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/death",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/archer/death",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.death_big": {
+    "subtitle": "subtitles.icegiant.gnoll_death",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/death_big",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.attack": {
+    "subtitle": "subtitles.icegiant.gnoll_attack",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/attack_sweep",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/melee/attack_sweep2",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.player_hit": {
+    "subtitle": "subtitles.icegiant.gnoll_hit",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/player_hit",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.bite": {
+    "subtitle": "subtitles.icegiant.gnoll_bite",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/bite",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.massacre": {
+    "subtitle": "subtitles.icegiant.gnoll_massacre",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/melee/massacre",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.archer.shoot": {
+    "subtitle": "subtitles.icegiant.gnoll_shoot",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/archer/attackbow",
+        "stream": false
+      },
+      {
+        "name": "icegiant:gnoll/archer/attackbow2",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.archer.jump": {
+    "subtitle": "subtitles.icegiant.gnoll_jump",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/archer/jump",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.shaman.spirits": {
+    "subtitle": "subtitles.icegiant.gnoll_spirits",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/shaman/spiritsattack",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.shaman.spirits_heal": {
+    "subtitle": "subtitles.icegiant.gnoll_spirits_heal",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/shaman/spiritsheal",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.shaman.spirits_hit": {
+    "subtitle": "subtitles.icegiant.gnoll_spirits_hit",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/shaman/spiritsattack_hit",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.shaman.circle": {
+    "subtitle": "subtitles.icegiant.gnoll_circle",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/shaman/circle",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.shaman.circle_apply": {
+    "subtitle": "subtitles.icegiant.gnoll_circle_apply",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/shaman/circle_apply",
+        "stream": false
+      }
+    ]
+  },
+  "ice_giant.roar": {
+    "subtitle": "subtitles.icegiant.ice_giant_roar",
+    "sounds": [
+      {
+        "name": "icegiant:ice_giant/roar",
+        "stream": false
+      }
+    ]
+  },
+  "gnoll.war_horn": {
+    "subtitle": "subtitles.icegiant.gnoll_war_horn",
+    "sounds": [
+      {
+        "name": "icegiant:gnoll/war_horn",
+        "stream": true
+      }
+    ]
+  },
+  "ice_giant.death": {
+    "subtitle": "subtitles.icegiant.ice_giant_death",
+    "sounds": [
+      {
+        "name": "icegiant:ice_giant/hurt_1",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_2",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_3",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_4",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_5",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_6",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_7",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:ice_giant/hurt_8",
+        "stream": false,
+        "pitch": 0.72,
+        "volume": 1.0
+      }
+    ]
+  },
+  "ice_giant.fall": {
+    "subtitle": "subtitles.icegiant.ice_giant_fall",
+    "sounds": [
+      {
+        "name": "icegiant:nordic_axe_slam_impact",
+        "stream": false,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "giant_rune_sword.slash": {
+    "subtitle": "subtitles.icegiant.rune_sword_slash",
+    "sounds": [
+      {
+        "name": "icegiant:giant_rune_sword/slash1",
+        "stream": false
+      },
+      {
+        "name": "icegiant:giant_rune_sword/slash2",
+        "stream": false
+      },
+      {
+        "name": "icegiant:giant_rune_sword/slash3",
+        "stream": false
+      }
+    ]
+  },
+  "giant_rune_sword.ground_cut": {
+    "subtitle": "subtitles.icegiant.rune_sword_ground_cut",
+    "sounds": [
+      {
+        "name": "icegiant:giant_rune_sword/ground_cut",
+        "stream": false
+      }
+    ]
+  }
+}

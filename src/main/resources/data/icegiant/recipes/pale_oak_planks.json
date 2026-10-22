@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "icegiant:pale_oak_logs"
+    }
+  ],
+  "result": {
+    "item": "icegiant:pale_oak_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.icegiant.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "icegiant.refmap.json",
+  "client": [
+    "PlayerModelArmMixin"
+  ],
+  "mixins": [
+    "EntityGrabRiderMixin",
+    "TreeFeatureMixin",
+    "SnowAndFreezeFeatureMixin",
+    "BiomeSnowMixin",
+    "RiverFlowMixin",
+    "NoVillagesMixin",
+    "VillagerFearMixin",
+    "LivingEntityDeathMixin",
+    "LakeFeatureMixin",
+    "CaveEntranceMixin",
+    "FrozenRealmDeepDarkMixin",
+    "SeaRavineMixin",
+    "IcebergFeatureMixin",
+    "FishCurrentMixin",
+    "GlowIceMeltMixin",
+    "GlowIceSnowMixin"
+  ]
+}

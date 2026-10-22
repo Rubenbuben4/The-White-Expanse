@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "item": "icegiant:bone_slab",
+    "count": 6
+  }
+}

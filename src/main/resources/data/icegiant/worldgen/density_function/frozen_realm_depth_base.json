@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:clamp",
+  "min": -2.0,
+  "max": 1.2,
+  "input": {
+    "type": "minecraft:min",
+    "argument1": {
+      "type": "minecraft:mul",
+      "argument1": 0.25,
+      "argument2": "icegiant:frozen_realm_ground"
+    },
+    "argument2": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_y": -64,
+      "to_y": 60,
+      "from_value": 1.6533,
+      "to_value": 0.0
+    }
+  }
+}

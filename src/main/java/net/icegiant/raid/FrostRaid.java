@@ -51,6 +51,13 @@ import java.util.UUID;
  * beside the village - a frameless round 6 x 6 disc (RaidRiftBlock). When only {@value #RETREAT_VILLAGERS} or fewer
  * villagers are left they withdraw through it (they vanish there) and it closes; it also closes when the raid is
  * beaten or called off. This is how Ice Giants - and with them the items for the frost portal - reach the Overworld.
+ * <p>
+ * <b>Rout</b> (every wave since 2026-10-22; before only the last one, and only while a giant was left - Rubenbuben4
+ * saw a lone giant of wave 2 fight on to the end): when a wave is down to {@value #FLEE_SHARE} of its attackers or
+ * fewer, the survivors give up. Giants of a rift raid first grab a villager if one is near and carry it off, everyone
+ * else runs back to where they came from (the rift, or the spot they arrived at) and vanishes there. Once they are
+ * all gone (or after {@value #RETREAT_MAX_TICKS} ticks) the wave counts as beaten: the next one comes, after the
+ * last one the village has won.
  */
 public class FrostRaid {
 
@@ -71,7 +78,7 @@ public class FrostRaid {
     static final int RETREAT_MAX_TICKS = 20 * 90;      // stragglers still out after 90 s vanish anyway
     static final int RIFT_SIZE = 6;                    // the rift: a round disc this many blocks across
     static final int RIFT_IN_FRONT = 3;                // the attackers step out this far in front of it
-    static final double FLEE_SHARE = 0.4;              // last wave down to this share: the giants grab villagers and flee
+    static final double FLEE_SHARE = 0.4;              // a wave down to this share of its attackers: the survivors flee
 
     final BlockPos center;
     int wave;                 // 0-based wave being fought (or coming)
@@ -88,6 +95,9 @@ public class FrostRaid {
     Direction.Axis riftAxis = Direction.Axis.X;
     boolean retreating;
     int retreatTicks;
+    boolean routed;                         // this wave has given up: its survivors are fleeing (rout)
+    int routTicks;
+    BlockPos entry;                         // where this wave arrived (non-rift raids flee back there)
     private ServerBossEvent bar;
 
     FrostRaid(BlockPos center, boolean rift) {
@@ -148,15 +158,20 @@ public class FrostRaid {
             if (e == null || (e.isAlive() && RaidGoals.isRaider(e))) alive++;   // (unloaded ones still count; dead ones were dropped above)
         }
         if (this.waveSize > 0) this.bar.setProgress(Math.max(0.0F, Math.min(1.0F, alive / (float) this.waveSize)));
-        // heavy losses in the last wave: the giants each grab a villager and flee through the rift
-        if (this.rift && this.riftBase != null && this.wave == WAVES - 1 && alive > 0 && alive <= this.waveSize * FLEE_SHARE
-                && this.giantsLeft(level)) {
-            this.startFlight(level);
-            return;
+        if (this.routed) {                                                     // the survivors are fleeing
+            this.routTicks += step;
+            if (this.routTicks >= RETREAT_MAX_TICKS) {                         // stragglers: gone through anyway
+                for (UUID id : this.raiders) if (level.getEntity(id) instanceof Mob m && m.isAlive()) RaidGoals.vanish(m);
+                this.raiders.clear();                                          // (unloaded ones still head back)
+                alive = 0;
+            }
+        } else if (alive > 0 && alive <= this.waveSize * FLEE_SHARE && this.home() != null) {
+            this.rout(level);                                                  // heavy losses: they give up
         }
         // keep the Gnolls brave: they go for the nearest villager
         for (UUID id : this.raiders) {
-            if (level.getEntity(id) instanceof GnollEntity k && k.isAlive() && k.getTarget() == null && level.random.nextInt(10) == 0) {
+            if (level.getEntity(id) instanceof GnollEntity k && k.isAlive() && RaidGoals.isActiveRaider(k) && k.getTarget() == null
+                    && level.random.nextInt(10) == 0) {
                 AbstractVillager v = level.getNearestEntity(AbstractVillager.class,
                         net.minecraft.world.entity.ai.targeting.TargetingConditions.forCombat().ignoreLineOfSight(),
                         k, k.getX(), k.getY(), k.getZ(), k.getBoundingBox().inflate(32.0D));
@@ -167,6 +182,7 @@ public class FrostRaid {
             this.wave++;
             this.raiders.clear();
             this.fallen.clear();
+            this.routed = false;
             if (this.wave >= WAVES) {
                 this.victory(level);
             } else {
@@ -201,20 +217,34 @@ public class FrostRaid {
         return false;
     }
 
-    /** The giants snatch villagers and run, the Gnolls run with them. */
-    private void startFlight(ServerLevel level) {
-        this.retreating = true;
-        this.retreatTicks = 0;
-        BlockPos home = this.riftBase.above(RIFT_SIZE / 2);
+    /** Where routed attackers run to: the rift (its middle), or else the spot their wave arrived at. */
+    private BlockPos home() {
+        if (this.rift && this.riftBase != null) return this.riftBase.above(RIFT_SIZE / 2);
+        return this.entry;
+    }
+
+    /**
+     * The wave gives up (heavy losses): giants of a rift raid snatch a villager and run, everyone else runs back.
+     * The raid goes on - the wave counts as beaten once they are gone.
+     */
+    private void rout(ServerLevel level) {
+        this.routed = true;
+        this.routTicks = 0;
+        BlockPos home = this.home();
+        boolean snatch = this.rift && this.riftBase != null && this.giantsLeft(level);
         for (UUID id : this.raiders) {
             if (!(level.getEntity(id) instanceof Mob m) || !m.isAlive()) continue;
-            if (m instanceof IceGiantEntity) m.getPersistentData().putBoolean(RaidGoals.SNATCH, true);
-            else RaidGoals.retreat(m, home);
+            if (snatch && m instanceof IceGiantEntity && m.getPersistentData().contains(RaidGoals.RIFT)) {
+                m.getPersistentData().putBoolean(RaidGoals.SNATCH, true);
+            } else {
+                RaidGoals.retreat(m, home);
+            }
             m.setTarget(null);
         }
         if (this.bar != null) {
-            this.bar.setName(Component.translatable("event.icegiant.frost_raid_flee"));
-            for (ServerPlayer p : this.bar.getPlayers()) p.displayClientMessage(Component.translatable("message.icegiant.frost_raid_flee"), false);
+            this.bar.setName(Component.translatable("event.icegiant.frost_raid_rout", this.wave + 1, WAVES));
+            String msg = snatch ? "message.icegiant.frost_raid_flee" : "message.icegiant.frost_raid_rout";
+            for (ServerPlayer p : this.bar.getPlayers()) p.displayClientMessage(Component.translatable(msg), false);
         }
     }
 
@@ -282,6 +312,9 @@ public class FrostRaid {
         }
         for (Mob m : spawned) this.raiders.add(m.getUUID());
         this.waveSize = this.raiders.size();
+        this.entry = spot;
+        this.routed = false;
+        this.routTicks = 0;
         this.bar.setName(Component.translatable("event.icegiant.frost_raid", this.wave + 1, WAVES));
         this.bar.setProgress(1.0F);
     }
@@ -433,6 +466,9 @@ public class FrostRaid {
         }
         t.putBoolean("Retreating", this.retreating);
         t.putInt("RetreatTicks", this.retreatTicks);
+        t.putBoolean("Routed", this.routed);
+        t.putInt("RoutTicks", this.routTicks);
+        if (this.entry != null) t.put("Entry", NbtUtils.writeBlockPos(this.entry));
         return t;
     }
 
@@ -445,6 +481,9 @@ public class FrostRaid {
         }
         r.retreating = t.getBoolean("Retreating");
         r.retreatTicks = t.getInt("RetreatTicks");
+        r.routed = t.getBoolean("Routed");
+        r.routTicks = t.getInt("RoutTicks");
+        if (t.contains("Entry")) r.entry = NbtUtils.readBlockPos(t.getCompound("Entry"));
         r.wave = t.getInt("Wave");
         r.delay = t.getInt("Delay");
         r.age = t.getInt("Age");

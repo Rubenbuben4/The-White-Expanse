@@ -162,6 +162,8 @@
   "event.icegiant.frost_raid_flee": "Frost-Überfall – die Riesen fliehen mit Gefangenen",
   "message.icegiant.frost_raid_flee": "Die Angreifer haben zu viele verloren – die Riesen packen Dorfbewohner und fliehen zum Riss!",
   "message.icegiant.frost_raid_abducted": "Ein Eisriese hat einen Dorfbewohner durch den Frostriss verschleppt!",
+  "event.icegiant.frost_raid_rout": "Frost-Überfall – Welle %s/%s: die Angreifer fliehen",
+  "message.icegiant.frost_raid_rout": "Die Angreifer haben zu viele verloren – die Überlebenden fliehen!",
   "entity.icegiant.gnoll_chief": "Gnoll-Häuptling",
   "death.attack.icegiant.blue_fire": "%1$s verbrannte in blauen Flammen",
   "death.attack.icegiant.blue_fire.player": "%1$s verbrannte im Kampf gegen %2$s in blauen Flammen",

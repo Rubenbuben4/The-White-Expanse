@@ -162,6 +162,8 @@
   "event.icegiant.frost_raid_flee": "Frost Raid – the giants flee with captives",
   "message.icegiant.frost_raid_flee": "The raiders have lost too many – the giants grab villagers and flee for the rift!",
   "message.icegiant.frost_raid_abducted": "An Ice Giant has carried a villager off through the frost rift!",
+  "event.icegiant.frost_raid_rout": "Frost Raid – wave %s/%s: the attackers flee",
+  "message.icegiant.frost_raid_rout": "The raiders have lost too many – the survivors flee!",
   "entity.icegiant.gnoll_chief": "Gnoll Chief",
   "death.attack.icegiant.blue_fire": "%1$s burned in blue flames",
   "death.attack.icegiant.blue_fire.player": "%1$s burned in blue flames whilst fighting %2$s",

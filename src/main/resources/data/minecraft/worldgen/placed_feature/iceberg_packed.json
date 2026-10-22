@@ -1,0 +1,18 @@
+{
+  "feature": "minecraft:iceberg_packed",
+  "placement": [
+    {
+      "type": "icegiant:not_in_frozen_realm"
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 16
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

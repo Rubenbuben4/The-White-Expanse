@@ -237,6 +237,24 @@ public final class SnowCover {
         return any;
     }
 
+    static final int FLOAT_SCAN = 80;                 // ice this thick (at most) over water counts as floating
+
+    private static boolean isIce(BlockState st) {
+        return st.is(Blocks.PACKED_ICE) || st.is(Blocks.BLUE_ICE) || st.is(Blocks.ICE) || st.is(Blocks.SNOW_BLOCK);
+    }
+
+    /** True if the ground block at y is ice (or snow on ice) with sea water under it: an iceberg, not land. */
+    private static boolean floatingIce(WorldGenRegion level, BlockPos.MutableBlockPos pos, int x, int z, int y) {
+        if (level.getBlockState(pos.set(x, y, z)).is(Blocks.SNOW)) y--;                // (a snow layer on top)
+        if (!isIce(level.getBlockState(pos.set(x, y, z)))) return false;
+        for (int k = 1; k <= FLOAT_SCAN; k++) {
+            BlockState st = level.getBlockState(pos.set(x, y - k, z));
+            if (isIce(st)) continue;
+            return st.is(Blocks.WATER) || st.getFluidState().is(Fluids.WATER);
+        }
+        return false;
+    }
+
     private static void coverColumn(WorldGenRegion level, BlockPos.MutableBlockPos pos, int x, int z,
                                     double surf, double slope, double hollow, double nearRiver, double scree) {
         int topAll = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);        // includes leaves
@@ -259,6 +277,10 @@ public final class SnowCover {
             }
             return;
         }
+        // floating ice (an iceberg that is not one of ours - vanilla's, or one that reached in from a chunk built by an
+        // older version): it is no land. Until 2026-10-22 its steep sides were painted like a cliff - the top of the
+        // berg became stone, basalt and concrete with snow on it, "mountain peaks of stone" out on the sea.
+        if (floatingIce(level, pos, x, z, ground - 1)) return;
 
         // ---- rock instead of soil on cliffs and high up ----
         int lowest = ground;

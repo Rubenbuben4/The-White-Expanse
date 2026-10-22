@@ -123,4 +123,31 @@ public final class ColdSea {
 
     /** (see ModFeatures) */
     public static final String ONLY_HERE = "frozen_realm_only";
+
+    /**
+     * Placement filter "icegiant:not_in_frozen_realm": lets a feature through everywhere but in the Frozen Realm. Put in
+     * front of vanilla's iceberg placements (data/minecraft/worldgen/placed_feature/iceberg_*.json, 2026-10-22), so
+     * the sea there only has its own icebergs - IcebergFeatureMixin alone did not keep vanilla's out (Rubenbuben4 found
+     * them out on the sea, their tops turned to stone by the snow cover).
+     */
+    public static final class NotHere extends PlacementFilter {
+        public static final NotHere INSTANCE = new NotHere();
+        public static final Codec<NotHere> CODEC = Codec.unit(() -> INSTANCE);
+
+        private NotHere() {
+        }
+
+        @Override
+        protected boolean shouldPlace(PlacementContext context, RandomSource random, BlockPos pos) {
+            return context.getLevel().getLevel().dimension() != ModDimensions.FROZEN_REALM;
+        }
+
+        @Override
+        public PlacementModifierType<?> type() {
+            return net.icegiant.registry.ModFeatures.NOT_IN_FROZEN_REALM.get();
+        }
+    }
+
+    /** (see ModFeatures) */
+    public static final String NOT_HERE = "not_in_frozen_realm";
 }

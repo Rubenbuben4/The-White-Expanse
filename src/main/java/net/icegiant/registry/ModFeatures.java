@@ -24,4 +24,8 @@ public class ModFeatures {
     /** "icegiant:frozen_realm_only" - a feature placed with it grows in the Frozen Realm only (ColdSea: kelp, seagrass). */
     public static final RegistryObject<net.minecraft.world.level.levelgen.placement.PlacementModifierType<net.icegiant.worldgen.ColdSea.OnlyHere>> FROZEN_REALM_ONLY =
             PLACEMENT_MODIFIERS.register(net.icegiant.worldgen.ColdSea.ONLY_HERE, () -> () -> net.icegiant.worldgen.ColdSea.OnlyHere.CODEC);
+
+    /** "icegiant:not_in_frozen_realm" - everywhere but the Frozen Realm (vanilla's icebergs, see ColdSea.NotHere). */
+    public static final RegistryObject<net.minecraft.world.level.levelgen.placement.PlacementModifierType<net.icegiant.worldgen.ColdSea.NotHere>> NOT_IN_FROZEN_REALM =
+            PLACEMENT_MODIFIERS.register(net.icegiant.worldgen.ColdSea.NOT_HERE, () -> () -> net.icegiant.worldgen.ColdSea.NotHere.CODEC);
 }

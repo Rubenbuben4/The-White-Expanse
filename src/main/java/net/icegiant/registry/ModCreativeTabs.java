@@ -63,8 +63,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.GNOLL_SHAMAN_NORMAL_SPAWN_EGG.get().getDefaultInstance());
                         output.accept(ModItems.GNOLL_SHAMAN_WARM_SPAWN_EGG.get().getDefaultInstance());
 
+                        output.accept(ModItems.FROST_GOAT_SPAWN_EGG.get());
+
                         // Tools
                         output.accept(ModItems.CHISEL.get());
+                        output.accept(ModItems.IRON_HORSESHOE.get());
+                        output.accept(ModItems.GOLDEN_HORSESHOE.get());
+                        output.accept(ModItems.DIAMOND_HORSESHOE.get());
+                        output.accept(ModItems.NETHERITE_HORSESHOE.get());
 
                         // Blocks (Frozen Realm trees)
                         output.accept(ModItems.PALE_OAK_WOOD.get());

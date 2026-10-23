@@ -168,5 +168,11 @@
   "death.attack.icegiant.blue_fire": "%1$s verbrannte in blauen Flammen",
   "death.attack.icegiant.blue_fire.player": "%1$s verbrannte im Kampf gegen %2$s in blauen Flammen",
   "block.icegiant.glow_ice": "Glimmeis",
-  "biome.icegiant.crystal_spires": "Kristallspitzen"
+  "biome.icegiant.crystal_spires": "Kristallspitzen",
+  "entity.icegiant.frost_goat": "Frostziege",
+  "item.icegiant.frost_goat_spawn_egg": "Frostziegen-Spawn-Ei",
+  "item.icegiant.iron_horseshoe": "Eisenhufeisen",
+  "item.icegiant.golden_horseshoe": "Goldhufeisen",
+  "item.icegiant.diamond_horseshoe": "Diamanthufeisen",
+  "item.icegiant.netherite_horseshoe": "Netherithufeisen"
 }

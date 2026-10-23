@@ -168,5 +168,11 @@
   "death.attack.icegiant.blue_fire": "%1$s burned in blue flames",
   "death.attack.icegiant.blue_fire.player": "%1$s burned in blue flames whilst fighting %2$s",
   "block.icegiant.glow_ice": "Glimmer Ice",
-  "biome.icegiant.crystal_spires": "Crystal Spires"
+  "biome.icegiant.crystal_spires": "Crystal Spires",
+  "entity.icegiant.frost_goat": "Frost Goat",
+  "item.icegiant.frost_goat_spawn_egg": "Frost Goat Spawn Egg",
+  "item.icegiant.iron_horseshoe": "Iron Horseshoe",
+  "item.icegiant.golden_horseshoe": "Golden Horseshoe",
+  "item.icegiant.diamond_horseshoe": "Diamond Horseshoe",
+  "item.icegiant.netherite_horseshoe": "Netherite Horseshoe"
 }

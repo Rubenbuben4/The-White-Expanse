@@ -21,6 +21,7 @@ public class ClientSetup {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntityTypes.ICE_GIANT.get(), IceGiantRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.FLUNG_BLOCK.get(), FlungBlockRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.FROST_GOAT.get(), FrostGoatRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.GNOLL_MELEE.get(),
                 ctx -> new net.icegiant.client.gnoll.GnollRenderer<>(ctx, "gnoll_melee"));
         event.registerEntityRenderer(ModEntityTypes.GNOLL_ARCHER.get(),
@@ -32,6 +33,12 @@ public class ClientSetup {
                 net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.FRACTURE_BLOCK_ENTITY.get(), FractureBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.DUNGEON_DOOR.get(), DungeonDoorRenderer::new);
+    }
+
+    /** The Frost Goat uses vanilla's goat shape 1:1 (GoatModel's own layer definition). */
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(FrostGoatRenderer.LAYER, net.minecraft.client.model.GoatModel::createBodyLayer);
     }
 
     /** Compatibility with EMF / Fresh Animations (our animations pause theirs while they play). */

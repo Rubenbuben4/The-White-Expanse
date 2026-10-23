@@ -21,6 +21,14 @@ public class ModEntityTypes {
                     .clientTrackingRange(10)
                     .build("ice_giant"));
 
+    // Frostziege (2026-10-23): Reittier des Frozen Realm, Ziegen-Hitbox 0.9 x 1.3 mal FrostGoatEntity.SCALE
+    public static final RegistryObject<EntityType<net.icegiant.entity.FrostGoatEntity>> FROST_GOAT =
+            ENTITY_TYPES.register("frost_goat", () -> EntityType.Builder
+                    .<net.icegiant.entity.FrostGoatEntity>of(net.icegiant.entity.FrostGoatEntity::new, MobCategory.CREATURE)
+                    .sized(0.9f * net.icegiant.entity.FrostGoatEntity.SCALE, 1.3f * net.icegiant.entity.FrostGoatEntity.SCALE)
+                    .clientTrackingRange(10)
+                    .build("frost_goat"));
+
     // Block, der beim Sturmlauf aus der Wand geschleudert wird (fliegt taumelnd, landet als Block)
     public static final RegistryObject<EntityType<net.icegiant.entity.FlungBlockEntity>> FLUNG_BLOCK =
             ENTITY_TYPES.register("flung_block", () -> EntityType.Builder

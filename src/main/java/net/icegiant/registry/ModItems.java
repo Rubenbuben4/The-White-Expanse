@@ -42,6 +42,19 @@ public class ModItems {
     public static final RegistryObject<Item> PURE_SOUL_ENERGY = ITEMS.register("pure_soul_energy",
             () -> new Item(new Item.Properties()));
 
+    // Frostziege (2026-10-23): Spawn-Ei und Hufeisen (schneller; Seelenläufer und Eisläufer möglich)
+    public static final RegistryObject<Item> FROST_GOAT_SPAWN_EGG = ITEMS.register("frost_goat_spawn_egg",
+            () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntityTypes.FROST_GOAT, 0xE8EEF2, 0x7FA6C4,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> IRON_HORSESHOE = ITEMS.register("iron_horseshoe",
+            () -> new net.icegiant.item.HorseshoeItem(new Item.Properties(), 0.10D, 9));
+    public static final RegistryObject<Item> GOLDEN_HORSESHOE = ITEMS.register("golden_horseshoe",
+            () -> new net.icegiant.item.HorseshoeItem(new Item.Properties(), 0.15D, 25));
+    public static final RegistryObject<Item> DIAMOND_HORSESHOE = ITEMS.register("diamond_horseshoe",
+            () -> new net.icegiant.item.HorseshoeItem(new Item.Properties(), 0.20D, 10));
+    public static final RegistryObject<Item> NETHERITE_HORSESHOE = ITEMS.register("netherite_horseshoe",
+            () -> new net.icegiant.item.HorseshoeItem(new Item.Properties().fireResistant(), 0.30D, 15));
+
     // Spawn-Ei für den Eisriesen (Farben: Eisblau / dunkles Blau)
     public static final RegistryObject<Item> ICE_GIANT_SPAWN_EGG = ITEMS.register("ice_giant_spawn_egg",
             () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntityTypes.ICE_GIANT, 0xA8DDF5, 0x2B4F7A,

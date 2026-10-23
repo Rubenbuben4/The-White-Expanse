@@ -56,6 +56,12 @@ public class IceGiantMod {
                 net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 IceGiantEntity::checkIceGiantSpawnRules,
                 net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation.REPLACE);
+        // Frost Goats: where goats may spawn (goats_spawnable_on, enough light) - see FrozenRealmGoats
+        event.register(ModEntityTypes.FROST_GOAT.get(),
+                net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
+                net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (type, level, reason, pos, random) -> net.minecraft.world.entity.animal.goat.Goat.checkGoatSpawnRules(type, level, reason, pos, random),
+                net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation.REPLACE);
         // Gnoll troops: Frozen Realm only as well (biome modifier gnoll_spawns.json)
         for (var type : java.util.List.of(ModEntityTypes.GNOLL_MELEE, ModEntityTypes.GNOLL_ARCHER, ModEntityTypes.GNOLL_SHAMAN)) {
             event.register(type.get(),
@@ -72,6 +78,7 @@ public class IceGiantMod {
 
     private void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntityTypes.ICE_GIANT.get(), IceGiantEntity.createAttributes().build());
+        event.put(ModEntityTypes.FROST_GOAT.get(), net.icegiant.entity.FrostGoatEntity.createAttributes().build());
         event.put(ModEntityTypes.GNOLL_MELEE.get(), net.icegiant.entity.gnoll.GnollMeleeEntity.createAttributes().build());
         event.put(ModEntityTypes.GNOLL_ARCHER.get(), net.icegiant.entity.gnoll.GnollArcherEntity.createAttributes().build());
         event.put(ModEntityTypes.GNOLL_SHAMAN.get(), net.icegiant.entity.gnoll.GnollShamanEntity.createAttributes().build());

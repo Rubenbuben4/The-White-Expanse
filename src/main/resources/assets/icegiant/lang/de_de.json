@@ -28,7 +28,7 @@
   "death.attack.icegiant.slam": "%1$s wurde vom Bodenschlag von %2$s zerschmettert",
   "death.attack.icegiant.slam.item": "%1$s wurde vom Bodenschlag von %2$s mit %3$s zerschmettert",
   "effect.icegiant.earthquake": "Erdbeben",
-  "key.icegiant.activate_dash": "Sturmlauf durch Wände",
+  "key.icegiant.activate_dash": "Sturmlauf durch Wände / Frostziegen-Dash",
   "message.icegiant.dash_cooldown": "Sturmlauf bereit in %s s",
   "key.icegiant.activate_ground_cut": "Boden-Schnitt (Runenschwert)",
   "message.icegiant.ground_cut_cooldown": "Boden-Schnitt bereit in %s s",

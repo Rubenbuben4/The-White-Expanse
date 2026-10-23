@@ -28,7 +28,7 @@
   "death.attack.icegiant.slam": "%1$s was crushed by %2$s's slam",
   "death.attack.icegiant.slam.item": "%1$s was crushed by %2$s's slam with %3$s",
   "effect.icegiant.earthquake": "Earthquake",
-  "key.icegiant.activate_dash": "Wall-Breaker Dash",
+  "key.icegiant.activate_dash": "Wall-Breaker Dash / Frost Goat Dash",
   "message.icegiant.dash_cooldown": "Dash ready in %s s",
   "key.icegiant.activate_ground_cut": "Ground Cut (Rune Sword)",
   "message.icegiant.ground_cut_cooldown": "Ground cut ready in %s s",

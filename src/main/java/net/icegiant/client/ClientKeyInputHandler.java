@@ -29,8 +29,9 @@ public class ClientKeyInputHandler {
         }
 
         while (ModKeyMappings.ACTIVATE_DASH.consumeClick()) {
-            // wall-breaker dash - same weapons as the slam (IceDashAbility)
-            if (mc.player.getMainHandItem().getItem() instanceof IceGeoWeaponItem) {
+            // riding a Frost Goat: its dash; otherwise the wall-breaker dash - same weapons as the slam (IceDashAbility)
+            if (mc.player.getVehicle() instanceof net.icegiant.entity.FrostGoatEntity
+                    || mc.player.getMainHandItem().getItem() instanceof IceGeoWeaponItem) {
                 NetworkHandler.INSTANCE.sendToServer(new net.icegiant.network.DashActivatePacket());
             }
         }

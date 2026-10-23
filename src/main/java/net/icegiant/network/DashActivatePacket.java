@@ -7,7 +7,7 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-/** Empty packet - the dash key was pressed (ClientKeyInputHandler -> IceDashAbility.tryActivate). */
+/** Empty packet - the dash key was pressed (ClientKeyInputHandler -> FrostGoatEntity.tryDash when riding one, else IceDashAbility.tryActivate). */
 public class DashActivatePacket {
 
     public DashActivatePacket() {
@@ -25,7 +25,10 @@ public class DashActivatePacket {
         NetworkEvent.Context ctx = ctxSupplier.get();
         ctx.enqueueWork(() -> {
             ServerPlayer player = ctx.getSender();
-            if (player != null) {
+            if (player == null) return;
+            if (player.getVehicle() instanceof net.icegiant.entity.FrostGoatEntity goat) {
+                goat.tryDash(player);                       // riding a Frost Goat: its dash, not the weapon's
+            } else {
                 IceDashAbility.tryActivate(player);
             }
         });

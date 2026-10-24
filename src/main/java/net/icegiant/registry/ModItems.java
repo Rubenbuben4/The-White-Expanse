@@ -143,6 +143,19 @@ public class ModItems {
     public static final RegistryObject<Item> SNOWY_SPRUCE_LEAVES = blockItem("snowy_spruce_leaves", ModBlocks.SNOWY_SPRUCE_LEAVES);
     public static final RegistryObject<Item> SNOWY_BIRCH_LEAVES = blockItem("snowy_birch_leaves", ModBlocks.SNOWY_BIRCH_LEAVES);
     public static final RegistryObject<Item> SNOWY_AZALEA_LEAVES = blockItem("snowy_azalea_leaves", ModBlocks.SNOWY_AZALEA_LEAVES);
+    public static final RegistryObject<Item> SNOWY_OAK_LEAVES = blockItem("snowy_oak_leaves", ModBlocks.SNOWY_OAK_LEAVES);
+    public static final RegistryObject<Item> SNOWY_DARK_OAK_LEAVES = blockItem("snowy_dark_oak_leaves", ModBlocks.SNOWY_DARK_OAK_LEAVES);
+    public static final RegistryObject<Item> SNOWY_ACACIA_LEAVES = blockItem("snowy_acacia_leaves", ModBlocks.SNOWY_ACACIA_LEAVES);
+    public static final RegistryObject<Item> SNOWY_JUNGLE_LEAVES = blockItem("snowy_jungle_leaves", ModBlocks.SNOWY_JUNGLE_LEAVES);
+    public static final RegistryObject<Item> SNOWY_MANGROVE_LEAVES = blockItem("snowy_mangrove_leaves", ModBlocks.SNOWY_MANGROVE_LEAVES);
+    public static final RegistryObject<Item> SNOWY_CHERRY_LEAVES = blockItem("snowy_cherry_leaves", ModBlocks.SNOWY_CHERRY_LEAVES);
+    public static final RegistryObject<Item> SNOWY_FLOWERING_AZALEA_LEAVES = blockItem("snowy_flowering_azalea_leaves", ModBlocks.SNOWY_FLOWERING_AZALEA_LEAVES);
+    public static final RegistryObject<Item> SNOWY_STONE = blockItem("snowy_stone", ModBlocks.SNOWY_STONE);
+    public static final RegistryObject<Item> SNOWY_GRAVEL = blockItem("snowy_gravel", ModBlocks.SNOWY_GRAVEL);
+    public static final RegistryObject<Item> SNOWY_SAND = blockItem("snowy_sand", ModBlocks.SNOWY_SAND);
+    public static final RegistryObject<Item> SNOWY_BLUE_ICE = blockItem("snowy_blue_ice", ModBlocks.SNOWY_BLUE_ICE);
+    public static final RegistryObject<Item> SNOWY_PUMPKIN = blockItem("snowy_pumpkin", ModBlocks.SNOWY_PUMPKIN);
+    public static final RegistryObject<Item> SNOWY_VINE = blockItem("snowy_vine", ModBlocks.SNOWY_VINE);
     public static final RegistryObject<Item> ICICLE = blockItem("icicle", ModBlocks.ICICLE);
 
     // Glimmeis (glow ice) from the Kristallspitzen biome

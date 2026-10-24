@@ -5,6 +5,8 @@
     "icegiant:packed_ice_slab",
     "icegiant:packed_ice_wall",
     "icegiant:packed_ice_fence",
-    "icegiant:packed_ice_pane"
+    "icegiant:packed_ice_pane",
+    "icegiant:snowy_stone",
+    "icegiant:snowy_blue_ice"
   ]
 }

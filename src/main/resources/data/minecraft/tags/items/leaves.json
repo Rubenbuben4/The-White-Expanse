@@ -3,6 +3,13 @@
   "values": [
     "icegiant:snowy_spruce_leaves",
     "icegiant:snowy_birch_leaves",
-    "icegiant:snowy_azalea_leaves"
+    "icegiant:snowy_azalea_leaves",
+    "icegiant:snowy_oak_leaves",
+    "icegiant:snowy_dark_oak_leaves",
+    "icegiant:snowy_acacia_leaves",
+    "icegiant:snowy_jungle_leaves",
+    "icegiant:snowy_mangrove_leaves",
+    "icegiant:snowy_cherry_leaves",
+    "icegiant:snowy_flowering_azalea_leaves"
   ]
 }

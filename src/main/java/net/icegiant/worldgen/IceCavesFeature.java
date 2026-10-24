@@ -148,6 +148,7 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
                     int y = Y_MIN - 1 + j;
                     if (Icebergs.hash(seed ^ 0x1C1CA7EL, x, y, z) >= ICICLE_CHANCE) continue;
                     if (!level.getBlockState(pos.set(x, y, z)).isAir() || nearFluid(level, pos)) continue;
+                    if (!level.getBiome(pos).is(SnowyDecor.SNOWY_BIOMES)) continue;   // (the caves are in the tag)
                     BlockPos up = pos.above();
                     if (!SnowyDecor.hangsFrom(level.getBlockState(up)) || !level.getBlockState(up).isFaceSturdy(level, up, Direction.DOWN)) continue;
                     level.setBlock(pos, icicle, 2);

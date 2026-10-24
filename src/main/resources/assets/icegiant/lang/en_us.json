@@ -192,5 +192,18 @@
   "block.icegiant.snowy_spruce_leaves": "Snowy Spruce Leaves",
   "block.icegiant.snowy_birch_leaves": "Snowy Birch Leaves",
   "block.icegiant.snowy_azalea_leaves": "Snowy Azalea Leaves",
-  "block.icegiant.icicle": "Icicle"
+  "block.icegiant.icicle": "Icicle",
+  "block.icegiant.snowy_oak_leaves": "Snowy Oak Leaves",
+  "block.icegiant.snowy_dark_oak_leaves": "Snowy Dark Oak Leaves",
+  "block.icegiant.snowy_acacia_leaves": "Snowy Acacia Leaves",
+  "block.icegiant.snowy_jungle_leaves": "Snowy Jungle Leaves",
+  "block.icegiant.snowy_mangrove_leaves": "Snowy Mangrove Leaves",
+  "block.icegiant.snowy_cherry_leaves": "Snowy Cherry Leaves",
+  "block.icegiant.snowy_flowering_azalea_leaves": "Snowy Flowering Azalea Leaves",
+  "block.icegiant.snowy_stone": "Snowy Stone",
+  "block.icegiant.snowy_gravel": "Snowy Gravel",
+  "block.icegiant.snowy_sand": "Snowy Sand",
+  "block.icegiant.snowy_blue_ice": "Snowy Blue Ice",
+  "block.icegiant.snowy_pumpkin": "Snowy Pumpkin",
+  "block.icegiant.snowy_vine": "Snowy Vines"
 }

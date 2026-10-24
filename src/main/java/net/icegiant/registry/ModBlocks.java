@@ -198,19 +198,46 @@ public class ModBlocks {
     // ---- snowy plants, leaves and icicles of the Frozen Realm (2026-10-24; textures from Better Snowy Features by
     //      zzzaitegui, MIT - CREDITS.md). The world puts them in place of the vanilla ones (worldgen/SnowyDecor). ----
     public static final RegistryObject<Block> SNOWY_GRASS = BLOCKS.register("snowy_grass",
-            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.GRASS)));
+            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
     public static final RegistryObject<Block> SNOWY_FERN = BLOCKS.register("snowy_fern",
-            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.FERN)));
+            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.FERN).offsetType(BlockBehaviour.OffsetType.NONE)));
     public static final RegistryObject<Block> SNOWY_TALL_GRASS = BLOCKS.register("snowy_tall_grass",
-            () -> new net.minecraft.world.level.block.DoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.TALL_GRASS)));
+            () -> new net.icegiant.block.SnowyDoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.TALL_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
     public static final RegistryObject<Block> SNOWY_LARGE_FERN = BLOCKS.register("snowy_large_fern",
-            () -> new net.minecraft.world.level.block.DoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.LARGE_FERN)));
+            () -> new net.icegiant.block.SnowyDoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.LARGE_FERN).offsetType(BlockBehaviour.OffsetType.NONE)));
     public static final RegistryObject<Block> SNOWY_SPRUCE_LEAVES = BLOCKS.register("snowy_spruce_leaves",
             () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.SPRUCE_LEAVES)));
     public static final RegistryObject<Block> SNOWY_BIRCH_LEAVES = BLOCKS.register("snowy_birch_leaves",
             () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.BIRCH_LEAVES)));
     public static final RegistryObject<Block> SNOWY_AZALEA_LEAVES = BLOCKS.register("snowy_azalea_leaves",
             () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.AZALEA_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_OAK_LEAVES = BLOCKS.register("snowy_oak_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_DARK_OAK_LEAVES = BLOCKS.register("snowy_dark_oak_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_ACACIA_LEAVES = BLOCKS.register("snowy_acacia_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.ACACIA_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_JUNGLE_LEAVES = BLOCKS.register("snowy_jungle_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.JUNGLE_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_MANGROVE_LEAVES = BLOCKS.register("snowy_mangrove_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.MANGROVE_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_CHERRY_LEAVES = BLOCKS.register("snowy_cherry_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.CHERRY_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_FLOWERING_AZALEA_LEAVES = BLOCKS.register("snowy_flowering_azalea_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.FLOWERING_AZALEA_LEAVES)));
+    // snow on the top of bare ground and rock (snow on top, snow-edged sides; they drop what they were)
+    public static final RegistryObject<Block> SNOWY_STONE = BLOCKS.register("snowy_stone",
+            () -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.STONE)));
+    public static final RegistryObject<Block> SNOWY_GRAVEL = BLOCKS.register("snowy_gravel",
+            () -> new net.minecraft.world.level.block.GravelBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.GRAVEL)));
+    public static final RegistryObject<Block> SNOWY_SAND = BLOCKS.register("snowy_sand",
+            () -> new net.minecraft.world.level.block.SandBlock(14406560, BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.SAND)));
+    public static final RegistryObject<Block> SNOWY_BLUE_ICE = BLOCKS.register("snowy_blue_ice",
+            () -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.BLUE_ICE)));
+    public static final RegistryObject<Block> SNOWY_PUMPKIN = BLOCKS.register("snowy_pumpkin",
+            () -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.PUMPKIN)));
+    public static final RegistryObject<Block> SNOWY_VINE = BLOCKS.register("snowy_vine",
+            () -> new net.minecraft.world.level.block.VineBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.VINE)));
     public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle",
             () -> new net.icegiant.block.IcicleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).noCollission()
                     .noOcclusion().strength(0.1F).sound(SoundType.GLASS).pushReaction(PushReaction.DESTROY)));

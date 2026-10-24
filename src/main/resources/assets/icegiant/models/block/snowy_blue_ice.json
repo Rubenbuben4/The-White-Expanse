@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "minecraft:block/snow",
+    "side": "icegiant:block/bsf/snowy_blue_ice",
+    "bottom": "minecraft:block/blue_ice"
+  }
+}

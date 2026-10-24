@@ -1,0 +1,96 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "icegiant:block/bsf/snowy_large_fern_top",
+    "fern": "icegiant:block/bsf/snowy_large_fern_top"
+  },
+  "elements": [
+    {
+      "from": [
+        1.8,
+        -3,
+        9
+      ],
+      "to": [
+        16.2,
+        13,
+        9
+      ],
+      "shade": false,
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          9,
+          5,
+          9
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fern"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fern"
+        }
+      }
+    },
+    {
+      "from": [
+        9,
+        -3,
+        1.8
+      ],
+      "to": [
+        9,
+        13,
+        16.2
+      ],
+      "shade": false,
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          9,
+          5,
+          9
+        ],
+        "rescale": true
+      },
+      "faces": {
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fern"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#fern"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

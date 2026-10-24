@@ -192,5 +192,18 @@
   "block.icegiant.snowy_spruce_leaves": "Verschneites Fichtenlaub",
   "block.icegiant.snowy_birch_leaves": "Verschneites Birkenlaub",
   "block.icegiant.snowy_azalea_leaves": "Verschneites Azaleenlaub",
-  "block.icegiant.icicle": "Eiszapfen"
+  "block.icegiant.icicle": "Eiszapfen",
+  "block.icegiant.snowy_oak_leaves": "Verschneites Eichenlaub",
+  "block.icegiant.snowy_dark_oak_leaves": "Verschneites Schwarzeichenlaub",
+  "block.icegiant.snowy_acacia_leaves": "Verschneites Akazienlaub",
+  "block.icegiant.snowy_jungle_leaves": "Verschneites Tropenbaumlaub",
+  "block.icegiant.snowy_mangrove_leaves": "Verschneites Mangrovenlaub",
+  "block.icegiant.snowy_cherry_leaves": "Verschneites Kirschlaub",
+  "block.icegiant.snowy_flowering_azalea_leaves": "Verschneites Blühendes Azaleenlaub",
+  "block.icegiant.snowy_stone": "Verschneiter Stein",
+  "block.icegiant.snowy_gravel": "Verschneiter Kies",
+  "block.icegiant.snowy_sand": "Verschneiter Sand",
+  "block.icegiant.snowy_blue_ice": "Verschneites Blaueis",
+  "block.icegiant.snowy_pumpkin": "Verschneiter Kürbis",
+  "block.icegiant.snowy_vine": "Verschneite Ranken"
 }

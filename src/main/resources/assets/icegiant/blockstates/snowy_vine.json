@@ -1,0 +1,44 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "icegiant:block/snowy_vine_north"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "icegiant:block/snowy_vine_south"
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "icegiant:block/snowy_vine_west"
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "icegiant:block/snowy_vine_east"
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "icegiant:block/snowy_vine_up"
+      }
+    }
+  ]
+}

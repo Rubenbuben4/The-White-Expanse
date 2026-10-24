@@ -18,6 +18,10 @@ public class ModFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> RIVERS =
             FEATURES.register("rivers", () -> new RiverFeature(NoneFeatureConfiguration.CODEC));
 
+    /** Eishöhlen: the big caverns with their ice walls and spires (IceCaves / IceCavesFeature), in worldgen/biome/ice_caves.json. */
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> ICE_CAVES =
+            FEATURES.register("ice_caves", () -> new net.icegiant.worldgen.IceCavesFeature(NoneFeatureConfiguration.CODEC));
+
     public static final DeferredRegister<net.minecraft.world.level.levelgen.placement.PlacementModifierType<?>> PLACEMENT_MODIFIERS =
             DeferredRegister.create(net.minecraft.core.registries.Registries.PLACEMENT_MODIFIER_TYPE, IceGiantMod.MOD_ID);
 

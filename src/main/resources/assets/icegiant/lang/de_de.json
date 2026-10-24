@@ -183,5 +183,6 @@
   "tooltip.icegiant.grab": "Volles Set – %s: Packen / Werfen",
   "tooltip.icegiant.horseshoe": "Frostziege: %s Tempo, springt höher",
   "tooltip.icegiant.frost_goat_dash": "%s beim Reiten: Dash",
-  "block.icegiant.fracture_block": "Bruchstelle"
+  "block.icegiant.fracture_block": "Bruchstelle",
+  "biome.icegiant.ice_caves": "Eishöhlen"
 }

@@ -183,5 +183,6 @@
   "tooltip.icegiant.grab": "Full set – %s: grab / throw",
   "tooltip.icegiant.horseshoe": "Frost Goat: %s speed, jumps higher",
   "tooltip.icegiant.frost_goat_dash": "%s while riding: dash",
-  "block.icegiant.fracture_block": "Fracture"
+  "block.icegiant.fracture_block": "Fracture",
+  "biome.icegiant.ice_caves": "Ice Caves"
 }

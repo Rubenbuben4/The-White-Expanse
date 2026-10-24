@@ -112,6 +112,20 @@ public final class CrystalSpires {
         int size = k < LARGE_SHARE * core ? 2 : k < LARGE_SHARE * core + SMALL_SHARE ? 0 : 1;
         double height = r.range(MIN_H[size], MAX_H[size]);
         int count = MIN_SPIRES[size] + (int) Math.floor(r.next() * (MAX_SPIRES[size] - MIN_SPIRES[size] + 1));
+        return new Cluster[]{build(r, x, z, gy, size, height, count)};
+    }
+
+    /**
+     * A cluster for the Eishöhlen (IceCaves, 2026-10-24): its foot on the ground at gy (for one hanging from a cave
+     * ceiling the caller mirrors Y), the middle spire {@code height} high, {@code count} spires - same shape and look as
+     * the Kristallspitzen ones.
+     */
+    public static Cluster caveCluster(long salt, double x, double z, double gy, double height, int count) {
+        Rand r = new Rand(salt);
+        return build(r, x, z, gy, height < MIN_H[1] ? 0 : height < MIN_H[2] ? 1 : 2, height, Math.max(1, count));
+    }
+
+    private static Cluster build(Rand r, double x, double z, double gy, int size, double height, int count) {
         Spire[] spires = new Spire[count];
         double spin = r.next() * Math.PI * 2.0;
         double reach = 0.0;
@@ -133,7 +147,7 @@ public final class CrystalSpires {
             bottom = Math.min(bottom, (int) Math.floor(y0) - 1);
             top = Math.max(top, (int) Math.ceil(y0 + len * Math.cos(tilt)) + 1);
         }
-        return new Cluster[]{new Cluster(x, z, size, gy, spires, Math.min(reach, MAX_REACH), bottom, top)};
+        return new Cluster(x, z, size, gy, spires, Math.min(reach, MAX_REACH), bottom, top);
     }
 
     /** A small single shard, 1 - 4 blocks out of the snow. */

@@ -607,6 +607,36 @@
           }
         },
         {
+          "biome": "icegiant:ice_caves",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -0.2,
+              0.2
+            ],
+            "continentalness": [
+              -1.2,
+              1.2
+            ],
+            "erosion": [
+              -2.0,
+              2.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              0.15,
+              0.75
+            ],
+            "offset": 0.0
+          }
+        },
+        {
           "biome": "minecraft:deep_dark",
           "parameters": {
             "temperature": [

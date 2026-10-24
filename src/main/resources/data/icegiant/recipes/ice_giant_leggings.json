@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "DCD",
+    "C C",
+    "D D"
+  ],
+  "key": {
+    "C": {
+      "item": "icegiant:ice_giant_core"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "icegiant:ice_giant_leggings",
+    "count": 1
+  }
+}

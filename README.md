@@ -23,20 +23,20 @@ Von / by **Rubenbuben4**. **Pre-Alpha** (0.2.72) – frühe Testversion / early 
   Flüsse und Seen mit Fischen, Kiefernwälder, Schneestürme, tiefes kaltes Meer mit Eisberg-Feldern, Biom Kristallspitzen, Höhlen.
   *Dimension behind the Frost Portal (Blue Ice frame + Frost Portal Key): Norwegian terrain, rivers and lakes with fish,
   pine forests, snowstorms, a deep cold sea with iceberg fields, the Crystal Spires biome, caves.*
-- **Frost-Portal-Schlüssel / Frost Portal Key** – aus Magic Orb (Gnoll-Schamane), graviertem Eisgiganten-Kern und Pure Soul Energy
+- **Frost-Portal-Schlüssel / Frost Portal Key** – aus Zauberkugel / Magic Orb (Gnoll-Schamane), graviertem Eisriesen-Kern und Reiner Seelenenergie / Pure Soul Energy
   (10 % von Dorfbewohnern, die ein Spieler tötet). *Craftable in survival.*
-- **Eisriesen / Ice Giants** – Bodenschlag, Sturmlauf durch Wände, Packen & Werfen, Kriegsschrei, mit dem Runenschwert Boden-Schnitt und breiter Hieb.
+- **Eisriesen / Ice Giants** – Bodenschlag, Sturmlauf durch Wände, Packen & Werfen, Kriegsschrei, mit den Großschwertern Boden-Schnitt und breiter Hieb.
 - **Gnolle / Gnolls** – Krieger, Bogenschütze, Schamane; Gnoll-Lager in der Oberwelt und im Frozen Realm.
 - **Frost-Überfälle / Frost Raids** auf Schneedörfer in der Oberwelt.
-- **Waffen / Weapons** – Nordic Axe, Gravebite, Nordic Axe II, Riesen-Runenschwert, Riesen-Runenschwert 2.0
+- **Waffen / Weapons** – Winterzahn / Winterfang, Gravebite, Jarlsbeil / Jarl's Axe, Gletscherspalter / Glacier Cleaver, Siegelklinge / Sealblade
+  (Eisriesen lassen ihre Waffe manchmal fallen / Ice Giants sometimes drop their weapon)
   (Rechtsklick Schwung, H Bodenschlag, J Sturmlauf, K Boden-Schnitt, N breiter Hieb – in der Steuerung änderbar).
-- **Eisriesen-Rüstung / Ice Giant armor** – volles Set: G packt, G wirft.
+- **Eisriesen-Rüstung / Ice Giant armor** – aus gravierten Eisriesen-Kernen und Diamanten herstellbar; volles Set: G packt, G wirft.
 - **Blöcke / Blocks** – Glimmeis, Bausteine aus Packeis, Schnee und Knochen, Blasseiche, senkrechte Stufen, Wolken, 10 Gemälde.
 
 Alles im Kreativ-Tab **„The White Expanse“** / everything in the creative tab **"The White Expanse"**.
 
 ## Bekannte Lücken / Known gaps
-- Waffen und Rüstung haben noch keine Rezepte.
 - Einige Grafiken und Sounds sind Platzhalter (siehe CREDITS.md).
 
 ## Selbst bauen / Building

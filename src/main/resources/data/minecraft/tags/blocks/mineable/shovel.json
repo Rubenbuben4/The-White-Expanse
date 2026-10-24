@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "icegiant:snow_stairs",
+    "icegiant:snow_slab",
+    "icegiant:snow_wall",
+    "icegiant:snow_fence"
+  ]
+}

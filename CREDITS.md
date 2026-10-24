@@ -5,8 +5,8 @@
 **Mod-Autor & Idee / Mod author & idea:** **Rubenbuben4**
 
 **3D-Modelle & ihre Texturen / 3D models & their textures:** **Rubenbuben4** –
-die Äxte (Nordic Axe, Nordic Axe II, Gravebite), die Ice-Giant-Rüstung und der Eisriesen-Skin.
-*The axes (Nordic Axe, Nordic Axe II, Gravebite), the Ice Giant armor and the Ice Giant skin.*
+die Äxte (Winterzahn, Jarlsbeil, Gravebite), die Ice-Giant-Rüstung und der Eisriesen-Skin.
+*The axes (Winterfang, Jarl's Axe, Gravebite), the Ice Giant armor and the Ice Giant skin.*
 
 **Gnolle / Gnolls:** **Hibiscus Studios × AnonymousDevs** (nicht von Rubenbuben4 – siehe unten / not by Rubenbuben4 – see below).
 
@@ -36,7 +36,7 @@ echte Kunst ersetzt:
 | `textures/block/cloud_*.png` (5 Graustufen / 5 shades) | Wolken-Blöcke (35 % durchsichtig) / cloud blocks (35 % see-through) |
 | `textures/block/dungeon_door.png`, `geo/dungeon_door.geo.json` | grauer Platzhalter fürs Verliestor (Rubenbuben4 macht das echte Modell) / grey placeholder for the dungeon door |
 | `textures/block/glow_ice.png` | Glimmeis-Textur (Biom Kristallspitzen) / Glimmer Ice texture (Crystal Spires biome) |
-| `sounds/giant_rune_sword/*.ogg` | Schwert-Geräusche des Riesen-Runenschwerts (Hieb, Boden-Schnitt), von Claude per Programm erzeugt / Giant Rune Sword sounds (slash, ground cut), generated with a program by Claude |
+| `sounds/giant_rune_sword/*.ogg` | Schwert-Geräusche der Großschwerter Gletscherspalter/Siegelklinge (Hieb, Boden-Schnitt), von Claude per Programm erzeugt / greatsword sounds of the Glacier Cleaver and Sealblade (slash, ground cut), generated with a program by Claude |
 
 Außerdem von Claude **bearbeitet** (keine eigene Kunst): die Frost-Portal-Textur und das
 Portal-Overlay sind die Vanilla-Portal-Animation, blau eingefärbt.
@@ -157,7 +157,7 @@ Für Minecraft umgewandelt (von Claude): mono, Lautstärke angeglichen, OGG Vorb
 *Recorded and put together by **Rubenbuben4**: the Ice Giant's walking footsteps and pain sounds
 (cut into single sounds and converted to OGG by Claude).*
 
-## Breiter Hieb des Runenschwerts – Animation & Slash / Rune Sword wide sweep – animation & slash – Rubenbuben4
+## Breiter Hieb der Großschwerter – Animation & Slash / Greatsword wide sweep – animation & slash – Rubenbuben4
 - **Animation** „Swing with the Sword“ – in Blockbench gemacht von **Rubenbuben4**, unverändert übernommen
   (`assets/icegiant/animations/ice_giant_sword_swing.json`)
 - **Slash-Bilder** – das Sprite-Sheet `pixel_art_sword_slash_sprites.png`, von **Rubenbuben4** geliefert; von Claude

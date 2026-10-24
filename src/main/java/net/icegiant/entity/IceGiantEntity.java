@@ -549,11 +549,17 @@ public class IceGiantEntity extends Monster {
         this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.ICE_GIANT_CHESTPLATE.get()));
         this.setItemSlot(EquipmentSlot.LEGS, new ItemStack(ModItems.ICE_GIANT_LEGGINGS.get()));
         this.setItemSlot(EquipmentSlot.FEET, new ItemStack(ModItems.ICE_GIANT_BOOTS.get()));
-        // equipment is never dropped - the reward is the raw core (loot_tables/entities/ice_giant.json)
+        // the reward is the raw core (loot_tables/entities/ice_giant.json); the armour is never dropped (it is
+        // crafted from engraved cores), the weapon sometimes is (2026-10-24) - vanilla Mob drop rules: only when
+        // a player killed him, +1 % per Looting level
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             this.setDropChance(slot, 0.0F);
         }
+        this.setDropChance(EquipmentSlot.MAINHAND, WEAPON_DROP_CHANCE);
     }
+
+    /** Chance that a giant spawned in the world drops his weapon when a player kills him. */
+    static final float WEAPON_DROP_CHANCE = 0.08F;
 
     /**
      * Creative mode: dress and arm the giant by hand. Right-click with an item: armor goes to its armor slot

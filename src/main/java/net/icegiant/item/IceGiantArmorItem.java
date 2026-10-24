@@ -36,6 +36,14 @@ public class IceGiantArmorItem extends ArmorItem implements GeoItem {
         super(material, type, properties);
     }
 
+    /** The full set lets the player grab and throw (PlayerGrabAbility, G). */
+    @Override
+    public void appendHoverText(ItemStack stack, @javax.annotation.Nullable net.minecraft.world.level.Level level,
+                                java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ItemTooltips.key(tooltip, "tooltip.icegiant.grab", "key.icegiant.grab");
+    }
+
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {

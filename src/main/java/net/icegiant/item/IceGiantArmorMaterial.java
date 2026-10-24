@@ -22,7 +22,7 @@ public enum IceGiantArmorMaterial implements ArmorMaterial {
                     ArmorItem.Type.LEGGINGS, 6,
                     ArmorItem.Type.BOOTS, 3)),
             2, SoundEvents.ARMOR_EQUIP_IRON, 1.5F, 0.1F,
-            () -> Ingredient.of(Items.DIAMOND)); // Platzhalter-Repair-Item, gerne durch eigenes Item ersetzen
+            () -> Ingredient.of(net.icegiant.registry.ModItems.ICE_GIANT_CORE.get())); // repaired with engraved cores (2026-10-24)
 
     private final String name;
     private final int durabilityMultiplier;

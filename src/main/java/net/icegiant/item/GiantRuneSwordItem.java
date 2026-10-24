@@ -33,6 +33,15 @@ public class GiantRuneSwordItem extends IceGeoWeaponItem {
         return entity.getMainHandItem().getItem() instanceof GiantRuneSwordItem;
     }
 
+    /** The axes' lines plus K ground cut and N wide sweep (SwordGroundCutAbility, SwordSweepAbility). */
+    @Override
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, @javax.annotation.Nullable net.minecraft.world.level.Level level,
+                                java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ItemTooltips.key(tooltip, "tooltip.icegiant.ground_cut", "key.icegiant.activate_ground_cut");
+        ItemTooltips.key(tooltip, "tooltip.icegiant.sweep", "key.icegiant.activate_sweep");
+    }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         super.registerControllers(controllers);

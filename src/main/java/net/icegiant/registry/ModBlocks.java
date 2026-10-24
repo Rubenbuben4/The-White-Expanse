@@ -3,7 +3,11 @@ package net.icegiant.registry;
 import net.icegiant.IceGiantMod;
 import net.icegiant.block.FractureBlock;
 import net.icegiant.block.FrostPortalBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -76,15 +80,26 @@ public class ModBlocks {
     // Pale oak and tuff walls/stairs/slabs only exist in newer Minecraft versions; the tree
     // structures use them, so the mod brings its own copies with the original textures
     // (pale oak) and vanilla's tuff texture. Same shapes and behaviour as the vanilla blocks.
+    // They burn like vanilla wood (2026-10-24): vanilla keeps its fire odds in a private FireBlock table, so each
+    // block answers Forge's getFlammability / getFireSpreadSpeed itself (wood/bark 5/5, planks family 5/20 as vanilla).
+    private static final int BURN_LOG = 5;
+    private static final int BURN_PLANKS = 20;
+
     public static final RegistryObject<Block> PALE_OAK_WOOD = BLOCKS.register("pale_oak_wood",
             () -> new net.minecraft.world.level.block.RotatedPillarBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DARK_OAK_WOOD)
-                            .mapColor(MapColor.STONE)));
+                            .mapColor(MapColor.STONE)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_LOG; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> PALE_OAK_FENCE_GATE = BLOCKS.register("pale_oak_fence_gate",
             () -> new net.minecraft.world.level.block.FenceGateBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_FENCE_GATE)
                             .mapColor(MapColor.QUARTZ),
-                    net.minecraft.world.level.block.state.properties.WoodType.OAK));
+                    net.minecraft.world.level.block.state.properties.WoodType.OAK) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_PLANKS; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> PALE_OAK_TRAPDOOR = BLOCKS.register("pale_oak_trapdoor",
             () -> new net.minecraft.world.level.block.TrapDoorBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_TRAPDOOR)
@@ -93,35 +108,56 @@ public class ModBlocks {
     // Pale oak planks family (crafted from Pale Oak Wood) - behave like normal wooden planks
     public static final RegistryObject<Block> PALE_OAK_PLANKS = BLOCKS.register("pale_oak_planks",
             () -> new Block(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_PLANKS)
-                    .mapColor(MapColor.QUARTZ)));
+                    .mapColor(MapColor.QUARTZ)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_PLANKS; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> PALE_OAK_STAIRS = BLOCKS.register("pale_oak_stairs",
             () -> new net.minecraft.world.level.block.StairBlock(() -> PALE_OAK_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_STAIRS)
-                            .mapColor(MapColor.QUARTZ)));
+                            .mapColor(MapColor.QUARTZ)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_PLANKS; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> PALE_OAK_SLAB = BLOCKS.register("pale_oak_slab",
             () -> new net.minecraft.world.level.block.SlabBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_SLAB)
-                            .mapColor(MapColor.QUARTZ)));
+                            .mapColor(MapColor.QUARTZ)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_PLANKS; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> PALE_OAK_FENCE = BLOCKS.register("pale_oak_fence",
             () -> new net.minecraft.world.level.block.FenceBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.OAK_FENCE)
-                            .mapColor(MapColor.QUARTZ)));
+                            .mapColor(MapColor.QUARTZ)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_PLANKS; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
 
     // The trees' tuff walls/stairs/slabs are shown in pale oak bark (user's choice, 2026-10-02) - the
     // registry names stay tuff_* so the tree structures keep working; in game they are "Pale Oak ...".
     public static final RegistryObject<Block> TUFF_WALL = BLOCKS.register("tuff_wall",
             () -> new net.minecraft.world.level.block.WallBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DARK_OAK_WOOD)
-                            .mapColor(MapColor.STONE).forceSolidOn()));
+                            .mapColor(MapColor.STONE).forceSolidOn()) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_LOG; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> TUFF_SLAB = BLOCKS.register("tuff_slab",
             () -> new net.minecraft.world.level.block.SlabBlock(
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DARK_OAK_WOOD)
-                            .mapColor(MapColor.STONE)));
+                            .mapColor(MapColor.STONE)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_LOG; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
     public static final RegistryObject<Block> TUFF_STAIRS = BLOCKS.register("tuff_stairs",
             () -> new net.minecraft.world.level.block.StairBlock(
                     () -> PALE_OAK_WOOD.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.DARK_OAK_WOOD)
-                            .mapColor(MapColor.STONE)));
+                            .mapColor(MapColor.STONE)) {
+                @Override public int getFlammability(BlockState s, BlockGetter l, BlockPos p, Direction d) { return BURN_LOG; }
+                @Override public int getFireSpreadSpeed(BlockState s, BlockGetter l, BlockPos p, Direction d) { return 5; }
+            });
 
     // ---- Packed ice building blocks (texture: vanilla packed ice) ----
     public static final RegistryObject<Block> PACKED_ICE_STAIRS = BLOCKS.register("packed_ice_stairs",

@@ -47,6 +47,16 @@ public class IceGeoWeaponItem extends IceWeaponItem implements GeoItem {
         return modelName;
     }
 
+    /** Right-click swing, H slam, J dash (WeaponAnimationEvents, NordicAxeSlamAbility, IceDashAbility). */
+    @Override
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, @javax.annotation.Nullable net.minecraft.world.level.Level level,
+                                java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ItemTooltips.key(tooltip, "tooltip.icegiant.swing", "key.use");
+        ItemTooltips.key(tooltip, "tooltip.icegiant.slam", "key.icegiant.activate_slam");
+        ItemTooltips.key(tooltip, "tooltip.icegiant.dash", "key.icegiant.activate_dash");
+    }
+
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {

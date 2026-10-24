@@ -34,6 +34,15 @@ public class HorseshoeItem extends Item {
         return this.speedBonus;
     }
 
+    /** "For the Frost Goat: +10 % speed, jumps higher" and the dash key. */
+    @Override
+    public void appendHoverText(ItemStack stack, @javax.annotation.Nullable net.minecraft.world.level.Level level,
+                                java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        ItemTooltips.line(tooltip, "tooltip.icegiant.horseshoe", "+" + Math.round(this.speedBonus * 100) + " %");
+        ItemTooltips.key(tooltip, "tooltip.icegiant.frost_goat_dash", "key.icegiant.activate_dash");
+    }
+
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         return enchantment == Enchantments.SOUL_SPEED || enchantment == Enchantments.FROST_WALKER;

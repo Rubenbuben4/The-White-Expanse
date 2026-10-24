@@ -61,8 +61,10 @@ public final class FrozenTerrainMath {
     // ---- TUNE: the deep sea (Rubenbuben4, 2026-10-21: "tief, wie ein kalter Ozean", floor Y 0-15). Only water
     //      columns change and only away from the coast: near the shore the old shallow shelf stays, then the floor
     //      drops down a continental slope to a deep plain with hills, swells, seamounts and long trenches ----
-    static final double SHELF_EDGE = -0.04, SHELF_EDGE_NOISE = 0.025, SHELF_EDGE_SIZE = 900.0;   // continent value
-    static final double SLOPE_WIDTH = 0.07;                         // the floor reaches the deep plain this much further out
+    //      (2026-10-24, Rubenbuben4: "the ocean is 3 blocks deep again" - the shelf was hundreds of blocks of 3-5 deep
+    //      water; now the slope starts close to the shore: was -0.04 +- 0.025, slope 0.07)
+    static final double SHELF_EDGE = -0.012, SHELF_EDGE_NOISE = 0.012, SHELF_EDGE_SIZE = 900.0;   // continent value
+    static final double SLOPE_WIDTH = 0.05;                         // the floor reaches the deep plain this much further out
     static final double DEEP_FLOOR_Y = 10.0;                        // middle of the deep sea floor
     // (2026-10-21 evening, Rubenbuben4: "zu glatt, wie eine Ebene" -> much more relief: ridges, terraces, more mountains)
     static final double SWELL_AMP = 10.0, SWELL_SIZE = 1300.0;      // wide rises and basins

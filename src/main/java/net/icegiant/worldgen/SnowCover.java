@@ -175,7 +175,9 @@ public final class SnowCover {
                     nearRiver = 0.0;
                     sc = 0.0;
                 }
-                coverColumn(level, pos, x, z, surf, s, hol, nearRiver, sc);
+                // (2026-10-24) the terrain here is sea floor: whatever ice stands on it is an iceberg, never land
+                boolean sea = math != null && math.cachedSurfaceY(x, z) < SEA_LEVEL - 1;
+                coverColumn(level, pos, x, z, surf, s, hol, nearRiver, sc, sea);
             }
         }
         return true;
@@ -256,7 +258,8 @@ public final class SnowCover {
     }
 
     private static void coverColumn(WorldGenRegion level, BlockPos.MutableBlockPos pos, int x, int z,
-                                    double surf, double slope, double hollow, double nearRiver, double scree) {
+                                    double surf, double slope, double hollow, double nearRiver, double scree,
+                                    boolean sea) {
         int topAll = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);        // includes leaves
         int ground = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
         pos.set(x, topAll - 1, z);
@@ -281,6 +284,9 @@ public final class SnowCover {
         // older version): it is no land. Until 2026-10-22 its steep sides were painted like a cliff - the top of the
         // berg became stone, basalt and concrete with snow on it, "mountain peaks of stone" out on the sea.
         if (floatingIce(level, pos, x, z, ground - 1)) return;
+        // ... and ice over sea floor is no land either, even when it stands on the floor of a shallow shelf or has an
+        // air gap inside (floatingIce then misses it): until 2026-10-24 such bergs got a stone cap with snow on it
+        if (sea && isIce(level.getBlockState(pos.set(x, ground - 1, z)))) return;
 
         // ---- rock instead of soil on cliffs and high up ----
         int lowest = ground;

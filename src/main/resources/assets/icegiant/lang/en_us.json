@@ -184,5 +184,13 @@
   "tooltip.icegiant.horseshoe": "Frost Goat: %s speed, jumps higher",
   "tooltip.icegiant.frost_goat_dash": "%s while riding: dash",
   "block.icegiant.fracture_block": "Fracture",
-  "biome.icegiant.ice_caves": "Ice Caves"
+  "biome.icegiant.ice_caves": "Ice Caves",
+  "block.icegiant.snowy_grass": "Snowy Grass",
+  "block.icegiant.snowy_fern": "Snowy Fern",
+  "block.icegiant.snowy_tall_grass": "Snowy Tall Grass",
+  "block.icegiant.snowy_large_fern": "Snowy Large Fern",
+  "block.icegiant.snowy_spruce_leaves": "Snowy Spruce Leaves",
+  "block.icegiant.snowy_birch_leaves": "Snowy Birch Leaves",
+  "block.icegiant.snowy_azalea_leaves": "Snowy Azalea Leaves",
+  "block.icegiant.icicle": "Icicle"
 }

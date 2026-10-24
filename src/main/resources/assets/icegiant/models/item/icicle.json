@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "icegiant:item/bsf/icicle_item"
+  }
+}

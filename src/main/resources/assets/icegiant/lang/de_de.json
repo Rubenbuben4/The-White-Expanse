@@ -184,5 +184,13 @@
   "tooltip.icegiant.horseshoe": "Frostziege: %s Tempo, springt höher",
   "tooltip.icegiant.frost_goat_dash": "%s beim Reiten: Dash",
   "block.icegiant.fracture_block": "Bruchstelle",
-  "biome.icegiant.ice_caves": "Eishöhlen"
+  "biome.icegiant.ice_caves": "Eishöhlen",
+  "block.icegiant.snowy_grass": "Verschneites Gras",
+  "block.icegiant.snowy_fern": "Verschneiter Farn",
+  "block.icegiant.snowy_tall_grass": "Verschneites hohes Gras",
+  "block.icegiant.snowy_large_fern": "Verschneiter großer Farn",
+  "block.icegiant.snowy_spruce_leaves": "Verschneites Fichtenlaub",
+  "block.icegiant.snowy_birch_leaves": "Verschneites Birkenlaub",
+  "block.icegiant.snowy_azalea_leaves": "Verschneites Azaleenlaub",
+  "block.icegiant.icicle": "Eiszapfen"
 }

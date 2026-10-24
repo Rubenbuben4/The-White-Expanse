@@ -35,6 +35,7 @@ public abstract class SnowAndFreezeFeatureMixin {
         Boulders.bankPlants(region, context.origin());         // ferns and grass right next to the water
         Boulders.pebbles(region, context.origin());            // little stones on open gravel
         Boulders.fixTallPlants(region, context.origin());      // no floating halves of tall ferns/grass
+        net.icegiant.worldgen.SnowyDecor.apply(region, context.origin());   // snowy plants / leaves, icicles
         cir.setReturnValue(done);
     }
 }

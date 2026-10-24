@@ -137,8 +137,28 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
                 }
             }
         }
+        // icicles under the rock and ice of the ceilings (2026-10-24)
+        BlockState icicle = net.icegiant.registry.ModBlocks.ICICLE.get().defaultBlockState();
+        for (int i = 1; i <= 16; i++) {
+            for (int k = 1; k <= 16; k++) {
+                int x = x0 - 1 + i, z = z0 - 1 + k;
+                for (int j = 2; j < h - 2; j++) {
+                    int at = (i * w + k) * h + j;
+                    if (!open[at] || open[at + 1] || !open[at - 1]) continue;        // the top cavern block, room below
+                    int y = Y_MIN - 1 + j;
+                    if (Icebergs.hash(seed ^ 0x1C1CA7EL, x, y, z) >= ICICLE_CHANCE) continue;
+                    if (!level.getBlockState(pos.set(x, y, z)).isAir() || nearFluid(level, pos)) continue;
+                    BlockPos up = pos.above();
+                    if (!SnowyDecor.hangsFrom(level.getBlockState(up)) || !level.getBlockState(up).isFaceSturdy(level, up, Direction.DOWN)) continue;
+                    level.setBlock(pos, icicle, 2);
+                }
+            }
+        }
         return true;
     }
+
+    /** Share of ceiling blocks with an icicle under them. */
+    static final double ICICLE_CHANCE = 0.12;
 
     /** May a cavern or a spire take this block's place? Rock, dirt, gravel, clay, ores, the veins' packed / blue ice. */
     private static boolean cuttable(BlockState s) {

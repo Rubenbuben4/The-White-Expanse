@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "icegiant:block/snowy_tall_grass_bottom"
+    },
+    "half=upper": {
+      "model": "icegiant:block/snowy_tall_grass_top"
+    }
+  }
+}

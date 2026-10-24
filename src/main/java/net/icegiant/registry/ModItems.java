@@ -133,6 +133,18 @@ public class ModItems {
     public static final RegistryObject<Item> BONE_BUTTON = blockItem("bone_button", ModBlocks.BONE_BUTTON);
     public static final RegistryObject<Item> BONE_PRESSURE_PLATE = blockItem("bone_pressure_plate", ModBlocks.BONE_PRESSURE_PLATE);
 
+    // snowy plants, leaves, icicles (ModBlocks)
+    public static final RegistryObject<Item> SNOWY_GRASS = blockItem("snowy_grass", ModBlocks.SNOWY_GRASS);
+    public static final RegistryObject<Item> SNOWY_FERN = blockItem("snowy_fern", ModBlocks.SNOWY_FERN);
+    public static final RegistryObject<Item> SNOWY_TALL_GRASS = ITEMS.register("snowy_tall_grass",
+            () -> new net.minecraft.world.item.DoubleHighBlockItem(ModBlocks.SNOWY_TALL_GRASS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SNOWY_LARGE_FERN = ITEMS.register("snowy_large_fern",
+            () -> new net.minecraft.world.item.DoubleHighBlockItem(ModBlocks.SNOWY_LARGE_FERN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SNOWY_SPRUCE_LEAVES = blockItem("snowy_spruce_leaves", ModBlocks.SNOWY_SPRUCE_LEAVES);
+    public static final RegistryObject<Item> SNOWY_BIRCH_LEAVES = blockItem("snowy_birch_leaves", ModBlocks.SNOWY_BIRCH_LEAVES);
+    public static final RegistryObject<Item> SNOWY_AZALEA_LEAVES = blockItem("snowy_azalea_leaves", ModBlocks.SNOWY_AZALEA_LEAVES);
+    public static final RegistryObject<Item> ICICLE = blockItem("icicle", ModBlocks.ICICLE);
+
     // Glimmeis (glow ice) from the Kristallspitzen biome
     public static final RegistryObject<Item> GLOW_ICE = blockItem("glow_ice", ModBlocks.GLOW_ICE);
 

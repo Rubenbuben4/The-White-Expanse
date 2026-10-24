@@ -48,7 +48,7 @@ Die fertige Datei liegt danach in `build/libs/the-white-expanse-<version>.jar` (
 ## Lizenz / License
 Code: **GPL-3.0-or-later** (siehe / see [LICENSE](LICENSE)).
 Nicht unter der GPL / not covered by the GPL: die Gnolle (Hibiscus Studios × AnonymousDevs), die Lager-Hütten (Louisdepoui),
-die Bäume (Voyde Studios), die Pixel-Icons von Glionox und die Pixabay-Sounds – siehe [CREDITS.md](CREDITS.md).
+die Bäume (Voyde Studios), die Schnee-Texturen aus Better Snowy Features (zzzaitegui, MIT), die Pixel-Icons von Glionox und die Pixabay-Sounds – siehe [CREDITS.md](CREDITS.md).
 
 ## Credits
 Vollständig in / full list in [CREDITS.md](CREDITS.md).

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "top": "icegiant:block/bsf/snowy_azalea_leaves_top",
+    "side": "icegiant:block/bsf/snowy_azalea_leaves_side",
+    "bottom": "icegiant:block/bsf/snowy_azalea_leaves_bottom"
+  }
+}

@@ -195,6 +195,26 @@ public class ModBlocks {
     public static final RegistryObject<Block> SNOW_FENCE = BLOCKS.register("snow_fence",
             () -> new net.minecraft.world.level.block.FenceBlock(snow()));
 
+    // ---- snowy plants, leaves and icicles of the Frozen Realm (2026-10-24; textures from Better Snowy Features by
+    //      zzzaitegui, MIT - CREDITS.md). The world puts them in place of the vanilla ones (worldgen/SnowyDecor). ----
+    public static final RegistryObject<Block> SNOWY_GRASS = BLOCKS.register("snowy_grass",
+            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.GRASS)));
+    public static final RegistryObject<Block> SNOWY_FERN = BLOCKS.register("snowy_fern",
+            () -> new net.icegiant.block.SnowyPlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.FERN)));
+    public static final RegistryObject<Block> SNOWY_TALL_GRASS = BLOCKS.register("snowy_tall_grass",
+            () -> new net.minecraft.world.level.block.DoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> SNOWY_LARGE_FERN = BLOCKS.register("snowy_large_fern",
+            () -> new net.minecraft.world.level.block.DoublePlantBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.LARGE_FERN)));
+    public static final RegistryObject<Block> SNOWY_SPRUCE_LEAVES = BLOCKS.register("snowy_spruce_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.SPRUCE_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_BIRCH_LEAVES = BLOCKS.register("snowy_birch_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.BIRCH_LEAVES)));
+    public static final RegistryObject<Block> SNOWY_AZALEA_LEAVES = BLOCKS.register("snowy_azalea_leaves",
+            () -> new net.minecraft.world.level.block.LeavesBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.AZALEA_LEAVES)));
+    public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle",
+            () -> new net.icegiant.block.IcicleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).noCollission()
+                    .noOcclusion().strength(0.1F).sound(SoundType.GLASS).pushReaction(PushReaction.DESTROY)));
+
     // Glimmeis (glow ice) of the Kristallspitzen biome: glows like cave vines (light 14), slippery, see-through
     public static final RegistryObject<Block> GLOW_ICE = BLOCKS.register("glow_ice",
             () -> new net.icegiant.block.GlowIceBlock(BlockBehaviour.Properties.of()

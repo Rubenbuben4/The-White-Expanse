@@ -84,6 +84,14 @@ public class ModCreativeTabs {
                         output.accept(ModItems.TUFF_STAIRS.get());
                         output.accept(ModItems.TUFF_SLAB.get());
                         output.accept(ModItems.GLOW_ICE.get());
+                        output.accept(ModItems.SNOWY_GRASS.get());
+                        output.accept(ModItems.SNOWY_FERN.get());
+                        output.accept(ModItems.SNOWY_TALL_GRASS.get());
+                        output.accept(ModItems.SNOWY_LARGE_FERN.get());
+                        output.accept(ModItems.SNOWY_SPRUCE_LEAVES.get());
+                        output.accept(ModItems.SNOWY_BIRCH_LEAVES.get());
+                        output.accept(ModItems.SNOWY_AZALEA_LEAVES.get());
+                        output.accept(ModItems.ICICLE.get());
                         output.accept(ModItems.PACKED_ICE_STAIRS.get());
                         output.accept(ModItems.PACKED_ICE_SLAB.get());
                         output.accept(ModItems.PACKED_ICE_WALL.get());

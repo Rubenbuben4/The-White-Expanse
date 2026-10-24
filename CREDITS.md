@@ -72,6 +72,20 @@ https://www.planetminecraft.com/project/norwegian-pine-trees-repository/
 (the newer pale oak / tuff blocks are included as mod blocks with Minecraft's original textures and shapes,
 textures © Mojang; leaves made persistent). Used with permission of Voyde Studios (e-mail of 4 October 2026). Not covered by the mod's GPL.*
 
+## Schnee-Texturen / Snowy textures – Better Snowy Features (zzzaitegui), MIT
+Die Texturen von verschneitem Gras, Farn, hohem Gras, großem Farn, Fichten-, Birken- und Azaleenlaub und den
+Eiszapfen stammen aus **Better Snowy Features** von **zzzaitegui** (MIT-Lizenz):
+https://www.curseforge.com/minecraft/mc-mods/bsf
+
+- Dateien: `assets/icegiant/textures/block/bsf/*.png`, `assets/icegiant/textures/item/bsf/icicle_item.png` – unverändert übernommen
+- Lizenztext liegt daneben: `assets/icegiant/textures/block/bsf/LICENSE-BetterSnowyFeatures.txt`
+- **Nur die Texturen** – der Code (Blöcke, Welt-Durchgang, Eiszapfen) ist eigener Code dieses Mods, nichts aus Better Snowy Features übernommen.
+- Diese Texturen stehen unter der MIT-Lizenz, **nicht** unter der GPL des Mods.
+
+*The snowy grass, fern, tall grass, large fern, spruce / birch / azalea leaves and icicle textures are from
+**Better Snowy Features** by **zzzaitegui** (MIT License), unchanged. Only the textures are used; all code is this
+mod's own. Licence text: `assets/icegiant/textures/block/bsf/LICENSE-BetterSnowyFeatures.txt`.*
+
 ## Gnolle / Gnolls – Hibiscus Studios × AnonymousDevs
 Die **Gnolle** (Diener der Eisriesen: Krieger, Bogenschütze, Schamane und der Fluchkreis des Schamanen)
 stammen **nicht von Rubenbuben4**, sondern aus dem Paket **„Kobolds“** von **Hibiscus Studios** und dem

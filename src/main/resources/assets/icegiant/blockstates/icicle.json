@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "icegiant:block/icicle",
+        "weight": 5
+      },
+      {
+        "model": "icegiant:block/icicle_1",
+        "weight": 3
+      },
+      {
+        "model": "icegiant:block/icicle_2",
+        "weight": 1
+      }
+    ]
+  }
+}

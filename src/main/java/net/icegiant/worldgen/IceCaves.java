@@ -21,13 +21,17 @@ public final class IceCaves {
     static final double OPEN = 0.5;                       // cavern where the noise is above this ...
     static final double EDGE = 0.5;                       // ... plus this much at the biome's edge (closes them there)
     public static final int ROOF = 14;                    // rock kept under the ground surface (rivers dig ~10)
+    // (2026-10-25, Rubenbuben4: the floor was "very weird flat" - cut off where the biome ended below. Now the caverns
+    //  go down to a wavy floor of their own and close towards it gradually)
+    public static final double FLOOR_LOW = -42.0, FLOOR_RANGE = 30.0, FLOOR_SIZE = 90.0;   // floor: Y -42 .. -12
+    static final double FLOOR_FADE = 18.0;                // caverns close over this many blocks above the floor
     // ---- TUNE: walls ----
     static final double BLUE_WALL = 0.16, PACKED_WALL = 0.5;   // (noise tail) wall blocks: blue ice / packed ice / rest stone
     // ---- TUNE: spires ----
     static final double FLOOR_CELL = 6.0, FLOOR_CHANCE = 0.85;  // standing spires: at most one cluster per cell
-    static final double CEIL_CELL = 6.0, CEIL_CHANCE = 0.75;   // hanging spires
+    static final double CEIL_CELL = 4.5, CEIL_CHANCE = 1.0;    // hanging spires (2026-10-25: many more, "a lot")
     static final double FLOOR_MIN_H = 3.0, FLOOR_MAX_H = 26.0, FLOOR_ROOM = 0.65;  // height; at most this x the room
-    static final double CEIL_MIN_H = 3.0, CEIL_MAX_H = 18.0, CEIL_ROOM = 0.5;
+    static final double CEIL_MIN_H = 4.0, CEIL_MAX_H = 24.0, CEIL_ROOM = 0.55;
     static final int MIN_ROOM = 5;                        // only in rooms at least this high
     public static final double REACH = 22.0;              // spires reach at most this far from their middle
 
@@ -46,7 +50,15 @@ public final class IceCaves {
     /** Is block (x, y, z) cavern? {@code biome}: how much of the Eishöhlen biome is here (0 = none, 1 = inside). */
     public static boolean cavern(long seed, int x, int y, int z, double biome) {
         if (biome <= 0.0) return false;
-        return noise(seed, x + 0.5, y + 0.5, z + 0.5) > OPEN + EDGE * (1.0 - biome);
+        double floor = floorY(seed, x, z);
+        if (y <= floor) return false;
+        double close = 1.0 - Math.min(1.0, (y - floor) / FLOOR_FADE);    // 1 at the floor ... 0 high enough above it
+        return noise(seed, x + 0.5, y + 0.5, z + 0.5) > OPEN + EDGE * (1.0 - biome) + EDGE * close * close;
+    }
+
+    /** The wavy lowest level of the caverns in this column. */
+    static double floorY(long seed, int x, int z) {
+        return FLOOR_LOW + FLOOR_RANGE * Icebergs.vnoise3(seed ^ 0xF1002L, x / FLOOR_SIZE, 0.5, z / FLOOR_SIZE);
     }
 
     /** What a rock block next to the cavern becomes. */
@@ -128,8 +140,11 @@ public final class IceCaves {
         rooms.removeIf(r -> r[1] - r[0] < MIN_ROOM || r[1] > top);
         if (rooms.isEmpty()) return null;
         int[] room = rooms.get((int) Math.floor(Icebergs.hash(salt, 10, 11, 12) * rooms.size()));
+        if (hanging) {                                         // hanging ones: from the highest hall's ceiling
+            for (int[] r : rooms) if (r[1] - r[0] > room[1] - room[0]) room = r;
+        }
         int high = room[1] - room[0];
-        double k = Math.pow(Icebergs.hash(salt, 13, 14, 15), 1.4);      // more small ones than big ones
+        double k = Math.pow(Icebergs.hash(salt, 13, 14, 15), hanging ? 1.0 : 1.4);   // more small ones than big ones
         int count = 1 + (int) Math.floor(Icebergs.hash(salt, 16, 17, 18) * 4.0);
         if (hanging) {
             double h = Math.min(high * CEIL_ROOM, CEIL_MIN_H + k * (CEIL_MAX_H - CEIL_MIN_H));

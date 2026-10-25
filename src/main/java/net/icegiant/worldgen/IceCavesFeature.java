@@ -38,8 +38,12 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
     public static final ResourceKey<Biome> BIOME =
             ResourceKey.create(Registries.BIOME, new ResourceLocation(IceGiantMod.MOD_ID, "ice_caves"));
 
-    /** The biome (depth 0.15 - 0.75 in the Frozen Realm's biome source) lies within these Y. */
-    static final int Y_MIN = -24, Y_MAX = 100;
+    /**
+     * The biome (depth 0.15 - 0.9 in the Frozen Realm's biome source) is looked for within BIOME_Y_MIN - Y_MAX; where it
+     * is, the caverns go down to their own wavy floor (IceCaves.floorY, at least Y_MIN), not just to the biome's lower
+     * edge - that edge is almost level and cut the caverns off flat (Rubenbuben4, 2026-10-25).
+     */
+    static final int Y_MIN = (int) IceCaves.FLOOR_LOW, BIOME_Y_MIN = -8, Y_MAX = 100;
     /** Biome cells (4 x 4 x 4) averaged around a spot (+- this many), so the caverns fade out towards the edge. */
     static final int BLUR = 1;
 
@@ -155,11 +159,41 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
                 }
             }
         }
+        // snow on the floors: the lowest cavern block of each room (rock under it), in patches
+        BlockState snow = Blocks.SNOW.defaultBlockState();
+        for (int i = 1; i <= 16; i++) {
+            for (int k = 1; k <= 16; k++) {
+                int x = x0 - 1 + i, z = z0 - 1 + k;
+                for (int j = 2; j < h - 2; j++) {
+                    int at = (i * w + k) * h + j;
+                    if (!open[at] || open[at - 1]) continue;
+                    int y = Y_MIN - 1 + j;
+                    double d = Icebergs.vnoise3(seed ^ 0x5A0F1AL, x / SNOW_SIZE, y / 6.0, z / SNOW_SIZE);
+                    if (d < SNOW_FROM) continue;
+                    double f = (d - SNOW_FROM) / (1.0 - SNOW_FROM);           // 0 at a drift's edge ... 1 in its middle
+                    pos.set(x, y, z);
+                    if (!level.getBlockState(pos).isAir() || nearFluid(level, pos)) continue;   // (a spire stands here)
+                    BlockPos down = pos.below();
+                    BlockState ground = level.getBlockState(down);
+                    if (f >= SNOW_BLOCK_FROM && (ground.is(BlockTags.BASE_STONE_OVERWORLD)
+                            || ground.is(Blocks.PACKED_ICE) || ground.is(Blocks.BLUE_ICE))) {
+                        level.setBlock(down, Blocks.SNOW_BLOCK.defaultBlockState(), 2);
+                        f -= SNOW_BLOCK_FROM;                                    // and a thin layer on top
+                    } else if (ground.is(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON) || !ground.isFaceSturdy(level, down, Direction.UP)) {
+                        continue;                                                // (snow would drop off ice)
+                    }
+                    int layers = Math.max(1, Math.min(4, 1 + (int) (f * 4.0)));
+                    level.setBlock(pos, snow.setValue(net.minecraft.world.level.block.SnowLayerBlock.LAYERS, layers), 2);
+                }
+            }
+        }
         return true;
     }
 
     /** Share of ceiling blocks with an icicle under them. */
-    static final double ICICLE_CHANCE = 0.12;
+    static final double ICICLE_CHANCE = 0.22;   // (2026-10-25: was 0.12)
+    // snow on the cavern floors (2026-10-25): drifts of snow layers, a snow block where a drift is deepest
+    static final double SNOW_SIZE = 9.0, SNOW_FROM = 0.42, SNOW_BLOCK_FROM = 0.62;
 
     /** May a cavern or a spire take this block's place? Rock, dirt, gravel, clay, ores, the veins' packed / blue ice. */
     private static boolean cuttable(BlockState s) {
@@ -179,6 +213,7 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
     private static final class Area {
         private final WorldGenLevel level;
         private final Map<Long, Boolean> inBiome = new HashMap<>();
+        private final Map<Long, Boolean> columns = new HashMap<>();
         private final Map<Long, Float> blurred = new HashMap<>();
         private final Map<Long, Integer> tops = new HashMap<>();
 
@@ -195,16 +230,24 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
             return this.inBiome.computeIfAbsent(key(qx, qy, qz), k -> this.level.getNoiseBiome(qx, qy, qz).is(BIOME));
         }
 
-        /** Share of Eishöhlen in the cells around this one. */
-        private float blur(int qx, int qy, int qz) {
-            return this.blurred.computeIfAbsent(key(qx, qy, qz), k -> {
+        /** Is there Eishöhlen anywhere in this column of biome cells (BIOME_Y_MIN - Y_MAX)? */
+        private boolean present(int qx, int qz) {
+            return this.columns.computeIfAbsent(key(qx, 0, qz), k -> {
+                for (int qy = Y_MAX >> 2; qy >= BIOME_Y_MIN >> 2; qy--) {
+                    if (in(qx, qy, qz)) return true;
+                }
+                return false;
+            });
+        }
+
+        /** Share of Eishöhlen columns in the cells around this one. */
+        private float blur(int qx, int qz) {
+            return this.blurred.computeIfAbsent(key(qx, 0, qz), k -> {
                 int n = 0, t = 0;
                 for (int a = -BLUR; a <= BLUR; a++) {
-                    for (int b = -BLUR; b <= BLUR; b++) {
-                        for (int c = -BLUR; c <= BLUR; c++) {
-                            t++;
-                            if (in(qx + a, qy + b, qz + c)) n++;
-                        }
+                    for (int c = -BLUR; c <= BLUR; c++) {
+                        t++;
+                        if (present(qx + a, qz + c)) n++;
                     }
                 }
                 return (float) n / t;
@@ -216,26 +259,22 @@ public class IceCavesFeature extends Feature<NoneFeatureConfiguration> {
             int qx0 = x0 >> 2, qz0 = z0 >> 2;
             for (int qx = qx0; qx < qx0 + 4; qx++) {
                 for (int qz = qz0; qz < qz0 + 4; qz++) {
-                    for (int qy = Y_MIN >> 2; qy <= Y_MAX >> 2; qy++) {
-                        if (in(qx, qy, qz)) return true;
-                    }
+                    if (present(qx, qz)) return true;
                 }
             }
             return false;
         }
 
-        /** How much Eishöhlen is at this block: 0 outside, 1 well inside, smooth in between. */
+        /** How much Eishöhlen is at this block (the same all the way down): 0 outside, 1 well inside, smooth between. */
         double weight(int x, int y, int z) {
-            double fx = (x + 0.5) / 4.0 - 0.5, fy = (y + 0.5) / 4.0 - 0.5, fz = (z + 0.5) / 4.0 - 0.5;
-            int ix = (int) Math.floor(fx), iy = (int) Math.floor(fy), iz = (int) Math.floor(fz);
-            double tx = fx - ix, ty = fy - iy, tz = fz - iz;
+            double fx = (x + 0.5) / 4.0 - 0.5, fz = (z + 0.5) / 4.0 - 0.5;
+            int ix = (int) Math.floor(fx), iz = (int) Math.floor(fz);
+            double tx = fx - ix, tz = fz - iz;
             double v = 0.0;
             for (int a = 0; a <= 1; a++) {
-                for (int b = 0; b <= 1; b++) {
-                    for (int c = 0; c <= 1; c++) {
-                        double f = (a == 0 ? 1 - tx : tx) * (b == 0 ? 1 - ty : ty) * (c == 0 ? 1 - tz : tz);
-                        if (f > 0.0) v += f * blur(ix + a, iy + b, iz + c);
-                    }
+                for (int c = 0; c <= 1; c++) {
+                    double f = (a == 0 ? 1 - tx : tx) * (c == 0 ? 1 - tz : tz);
+                    if (f > 0.0) v += f * blur(ix + a, iz + c);
                 }
             }
             return Math.max(0.0, Math.min(1.0, (v - 0.25) / 0.6));

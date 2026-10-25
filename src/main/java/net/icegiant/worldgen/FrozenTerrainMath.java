@@ -65,6 +65,13 @@ public final class FrozenTerrainMath {
     //      water; now the slope starts close to the shore: was -0.04 +- 0.025, slope 0.07)
     static final double SHELF_EDGE = -0.012, SHELF_EDGE_NOISE = 0.012, SHELF_EDGE_SIZE = 900.0;   // continent value
     static final double SLOPE_WIDTH = 0.05;                         // the floor reaches the deep plain this much further out
+    //      (2026-10-25, Rubenbuben4 again: shallow sea far out. Offline check: 8.4 % of the sea was 3-6 deep with land
+    //      100-850 blocks away - the continent value stays near the shelf edge over huge areas. Now the floor also
+    //      goes down with the distance to the nearest land, whichever is deeper)
+    static final double SHELF_WIDTH = 20.0, SHELF_WIDTH_NOISE = 10.0;   // blocks of shallow shelf off the shore ...
+    static final double SLOPE_BLOCKS = 100.0;                       // ... then the floor reaches the deep plain this far out
+    static final int SHORE_GRID = 8, SHORE_PROBE_DIRS = 12;         // land distance: every 8 blocks, 12 directions
+    static final double[] SHORE_PROBE_R = {8, 16, 26, 38, 52, 68, 86, 106, 128};
     static final double DEEP_FLOOR_Y = 10.0;                        // middle of the deep sea floor
     // (2026-10-21 evening, Rubenbuben4: "zu glatt, wie eine Ebene" -> much more relief: ridges, terraces, more mountains)
     static final double SWELL_AMP = 10.0, SWELL_SIZE = 1300.0;      // wide rises and basins
@@ -663,6 +670,8 @@ public final class FrozenTerrainMath {
     double seaFloor(double x, double z, double h, double c) {
         double edge = SHELF_EDGE + SHELF_EDGE_NOISE * this.shelfEdge.value(x / SHELF_EDGE_SIZE, z / SHELF_EDGE_SIZE);
         double deep = smooth(edge, edge - SLOPE_WIDTH, c);                  // 0 on the shelf ... 1 on the deep plain
+        double shelf = SHELF_WIDTH + SHELF_WIDTH_NOISE * this.shelfEdge.value(x / SHELF_EDGE_SIZE + 4.4, z / SHELF_EDGE_SIZE - 2.2);
+        deep = Math.max(deep, smooth(shelf, shelf + SLOPE_BLOCKS, landDistance(x, z)));   // far from land: deep too
         double near = smooth(SHELF_RELIEF_FROM, SHELF_RELIEF_FULL, SEA_Y - 1.0 - h);   // 0 at the shore line
         if (near > 0.0) {                                                    // the shelf: low hills, rocks, hollows
             double bumps = SHELF_HILL_AMP * this.seaHill[1].value(x / 70.0 + 5.5, z / 70.0 - 1.9)
@@ -684,6 +693,56 @@ public final class FrozenTerrainMath {
                 + SEA_ROUGH_AMP * this.rough1.value(x / ROUGH_SIZE_1, z / ROUGH_SIZE_1);
         plain = Math.max(SEA_FLOOR_MIN_Y, Math.min(SEA_Y - SEA_FLOOR_MAX_DEPTH_TOP, plain));
         return h + (plain - h) * deep;                                      // (no step where the slope begins)
+    }
+
+    private final ThreadLocal<ColumnCache> landCache = ThreadLocal.withInitial(ColumnCache::new);
+
+    /**
+     * Blocks to the nearest land (old surface baseY at or above the water) - measured on a grid every
+     * {@value #SHORE_GRID} blocks and blended between the grid points, so it is smooth and the same in every chunk.
+     * At most the last probe radius (128): further out it does not matter any more.
+     */
+    double landDistance(double x, double z) {
+        double gx = x / SHORE_GRID, gz = z / SHORE_GRID;
+        int ix = (int) Math.floor(gx), iz = (int) Math.floor(gz);
+        double tx = gx - ix, tz = gz - iz;
+        ColumnCache cache = this.landCache.get();
+        double a = gridLandDistance(cache, ix, iz), b = gridLandDistance(cache, ix + 1, iz);
+        double c = gridLandDistance(cache, ix, iz + 1), d = gridLandDistance(cache, ix + 1, iz + 1);
+        return (a * (1 - tx) + b * tx) * (1 - tz) + (c * (1 - tx) + d * tx) * tz;
+    }
+
+    private double gridLandDistance(ColumnCache cache, int ix, int iz) {
+        long key = ((long) ix << 32) | (iz & 0xffffffffL);
+        int slot = (int) ((key * 0x9E3779B97F4A7C15L) >>> 55);
+        if (cache.keys[slot] == key) return cache.values[slot];
+        double v = probeLand(ix * (double) SHORE_GRID, iz * (double) SHORE_GRID);
+        cache.keys[slot] = key;
+        cache.values[slot] = v;
+        return v;
+    }
+
+    /** Rings of probes around (x, z); on the first ring that hits land, the exact distance is narrowed down. */
+    private double probeLand(double x, double z) {
+        if (baseY(x, z, null) >= SEA_Y) return 0.0;
+        double inner = 0.0;
+        for (double r : SHORE_PROBE_R) {
+            double best = Double.MAX_VALUE;
+            for (int i = 0; i < SHORE_PROBE_DIRS; i++) {
+                double ang = (i + (r % 2 == 0 ? 0.0 : 0.5)) * (Math.PI * 2.0 / SHORE_PROBE_DIRS);
+                double cx = Math.cos(ang), cz = Math.sin(ang);
+                if (baseY(x + r * cx, z + r * cz, null) < SEA_Y) continue;
+                double lo = inner, hi = r;                                    // water at lo, land at hi
+                for (int s = 0; s < 4; s++) {
+                    double mid = 0.5 * (lo + hi);
+                    if (baseY(x + mid * cx, z + mid * cz, null) >= SEA_Y) hi = mid; else lo = mid;
+                }
+                best = Math.min(best, hi);
+            }
+            if (best < Double.MAX_VALUE) return best;
+            inner = r;
+        }
+        return SHORE_PROBE_R[SHORE_PROBE_R.length - 1];
     }
 
     /** About -0.5..0.5: branching ridges (sharp crests, wide valleys), winding, two sizes. */

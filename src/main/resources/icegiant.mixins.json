@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "icegiant.refmap.json",
   "client": [
-    "PlayerModelArmMixin"
+    "PlayerModelArmMixin",
+    "ItemInHandRendererMixin"
   ],
   "mixins": [
     "EntityGrabRiderMixin",

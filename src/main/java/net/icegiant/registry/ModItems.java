@@ -30,8 +30,9 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     // Gravierter Eisgiganten-Kern - Rezept: roher Kern + Meißel (recipes/ice_giant_core.json)
+    // (2026-10-25: can carry a biome for the Schöpfungskristalle - IceGiantCoreItem)
     public static final RegistryObject<Item> ICE_GIANT_CORE = ITEMS.register("ice_giant_core",
-            () -> new Item(new Item.Properties()));
+            () -> new net.icegiant.item.IceGiantCoreItem(new Item.Properties()));
 
     // Magic Orb - Zutat für den Frost-Portal-Schlüssel (recipes/frost_flint_and_steel.json), droppt vom Gnoll-Schamanen
     public static final RegistryObject<Item> MAGIC_ORB = ITEMS.register("magic_orb",
@@ -117,6 +118,14 @@ public class ModItems {
     public static final RegistryObject<Item> FROST_PORTAL = blockItem("frost_portal", ModBlocks.FROST_PORTAL);
     // dungeon door (3 x 6 blocks) - placed with its bottom middle on the clicked spot
     public static final RegistryObject<Item> DUNGEON_DOOR = blockItem("dungeon_door", ModBlocks.DUNGEON_DOOR);
+    public static final RegistryObject<Item> CREATION_CRYSTAL = ITEMS.register("creation_crystal",
+            () -> new net.icegiant.item.CreationCrystalItem(ModBlocks.CREATION_CRYSTAL.get(),
+                    new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE),
+                    net.icegiant.crystal.CreationCrystals.SMALL_RADIUS, false));
+    public static final RegistryObject<Item> LARGE_CREATION_CRYSTAL = ITEMS.register("large_creation_crystal",
+            () -> new net.icegiant.item.CreationCrystalItem(ModBlocks.LARGE_CREATION_CRYSTAL.get(),
+                    new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC),
+                    net.icegiant.crystal.CreationCrystals.LARGE_RADIUS, true));
     // invisible light - creative only (no recipe), like the barrier block
     public static final RegistryObject<Item> INVISIBLE_LIGHT = ITEMS.register("invisible_light",
             () -> new net.minecraft.world.item.BlockItem(ModBlocks.INVISIBLE_LIGHT.get(),

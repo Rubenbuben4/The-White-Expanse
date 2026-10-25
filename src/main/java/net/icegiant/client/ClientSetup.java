@@ -33,9 +33,18 @@ public class ClientSetup {
                 net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.FRACTURE_BLOCK_ENTITY.get(), FractureBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.DUNGEON_DOOR.get(), DungeonDoorRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.CREATION_CRYSTAL.get(), CreationCrystalRenderer::new);
     }
 
     /** The Frost Goat uses vanilla's goat shape 1:1 (GoatModel's own layer definition). */
+    /** The Schöpfungskristall's three parts are drawn by its renderer, not by a block state - load them anyway. */
+    @SubscribeEvent
+    public static void registerExtraModels(net.minecraftforge.client.event.ModelEvent.RegisterAdditional event) {
+        event.register(CreationCrystalRenderer.CORE);
+        event.register(CreationCrystalRenderer.RING_MIDDLE);
+        event.register(CreationCrystalRenderer.RING_TOP);
+    }
+
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(FrostGoatRenderer.LAYER, net.minecraft.client.model.GoatModel::createBodyLayer);

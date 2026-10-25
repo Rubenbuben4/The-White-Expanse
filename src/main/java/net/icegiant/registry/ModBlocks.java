@@ -22,6 +22,25 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, IceGiantMod.MOD_ID);
 
     // Dungeon door: 3 x 6 blocks, two wings that swing open (GeckoLib model, see DungeonDoorBlock)
+    // Schöpfungskristalle (creation crystals, Rubenbuben4 2026-10-25): change the biome around them (CreationCrystals)
+    public static final RegistryObject<Block> CREATION_CRYSTAL = BLOCKS.register("creation_crystal",
+            () -> new net.icegiant.block.CreationCrystalBlock(crystalProperties()));
+    public static final RegistryObject<Block> LARGE_CREATION_CRYSTAL = BLOCKS.register("large_creation_crystal",
+            () -> new net.icegiant.block.LargeCreationCrystalBlock(crystalProperties()));
+
+    private static BlockBehaviour.Properties crystalProperties() {
+        return BlockBehaviour.Properties.of()
+                .mapColor(MapColor.ICE)
+                .strength(3.0F, 1200.0F)
+                .sound(SoundType.AMETHYST)
+                .noOcclusion()
+                .lightLevel(s -> s.getValue(net.icegiant.block.CreationCrystalBlock.ACTIVE) ? 12 : 5)
+                .isValidSpawn((state, level, pos, type) -> false)
+                .isSuffocating((state, level, pos) -> false)
+                .isViewBlocking((state, level, pos) -> false)
+                .pushReaction(PushReaction.BLOCK);
+    }
+
     public static final RegistryObject<Block> DUNGEON_DOOR = BLOCKS.register("dungeon_door",
             () -> new net.icegiant.block.DungeonDoorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD)

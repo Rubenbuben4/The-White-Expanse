@@ -205,5 +205,21 @@
   "block.icegiant.snowy_sand": "Snowy Sand",
   "block.icegiant.snowy_blue_ice": "Snowy Blue Ice",
   "block.icegiant.snowy_pumpkin": "Snowy Pumpkin",
-  "block.icegiant.snowy_vine": "Snowy Vines"
+  "block.icegiant.snowy_vine": "Snowy Vines",
+  "block.icegiant.creation_crystal": "Creation Crystal",
+  "block.icegiant.large_creation_crystal": "Great Creation Crystal",
+  "tooltip.icegiant.creation_crystal.lore": "Made by the noble Ice Giants",
+  "tooltip.icegiant.creation_crystal.radius": "Turns the biome within %s blocks into another (120 up, 120 down)",
+  "tooltip.icegiant.creation_crystal.use": "Awaken: right-click with an engraved core that carries a biome",
+  "tooltip.icegiant.creation_crystal.space": "Needs 3 × 3 × 3 free blocks",
+  "tooltip.icegiant.core.charge": "Right-click: takes in the biome you stand in",
+  "tooltip.icegiant.core.biome": "Carries the biome: %s",
+  "tooltip.icegiant.core.clear": "Sneak + right-click: release the biome",
+  "message.icegiant.core.charged": "The core now carries: %s",
+  "message.icegiant.core.cleared": "The core released its biome",
+  "message.icegiant.crystal.core_empty": "This core carries no biome yet – right-click in a biome to take it in",
+  "message.icegiant.crystal.awakened": "The Creation Crystal awakens: %s within %s blocks",
+  "message.icegiant.crystal.asleep": "The Creation Crystal falls asleep – the land returns",
+  "message.icegiant.crystal.idle": "The Creation Crystal rests – it needs an engraved core that carries a biome",
+  "message.icegiant.crystal.status": "The Creation Crystal shapes %s within %s blocks (sneak + empty hand: take the core out)"
 }

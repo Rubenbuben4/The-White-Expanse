@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "icegiant:block/creation_crystal"
+      }
+    }
+  ]
+}

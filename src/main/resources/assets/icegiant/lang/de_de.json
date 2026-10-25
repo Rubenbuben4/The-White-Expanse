@@ -205,5 +205,21 @@
   "block.icegiant.snowy_sand": "Verschneiter Sand",
   "block.icegiant.snowy_blue_ice": "Verschneites Blaueis",
   "block.icegiant.snowy_pumpkin": "Verschneiter Kürbis",
-  "block.icegiant.snowy_vine": "Verschneite Ranken"
+  "block.icegiant.snowy_vine": "Verschneite Ranken",
+  "block.icegiant.creation_crystal": "Schöpfungskristall",
+  "block.icegiant.large_creation_crystal": "Großer Schöpfungskristall",
+  "tooltip.icegiant.creation_crystal.lore": "Geschaffen von den noblen Eisriesen",
+  "tooltip.icegiant.creation_crystal.radius": "Verwandelt das Biom in %s Blöcken Umkreis (120 hoch, 120 tief)",
+  "tooltip.icegiant.creation_crystal.use": "Erwecken: mit einem gravierten Kern, der ein Biom trägt, rechtsklicken",
+  "tooltip.icegiant.creation_crystal.space": "Braucht 3 × 3 × 3 freie Blöcke",
+  "tooltip.icegiant.core.charge": "Rechtsklick: nimmt das Biom auf, in dem du stehst",
+  "tooltip.icegiant.core.biome": "Trägt das Biom: %s",
+  "tooltip.icegiant.core.clear": "Schleichen + Rechtsklick: Biom freigeben",
+  "message.icegiant.core.charged": "Der Kern trägt jetzt: %s",
+  "message.icegiant.core.cleared": "Der Kern hat sein Biom freigegeben",
+  "message.icegiant.crystal.core_empty": "Dieser Kern trägt noch kein Biom – Rechtsklick in einem Biom, um es aufzunehmen",
+  "message.icegiant.crystal.awakened": "Der Schöpfungskristall erwacht: %s in %s Blöcken Umkreis",
+  "message.icegiant.crystal.asleep": "Der Schöpfungskristall schläft wieder – das Land kehrt zurück",
+  "message.icegiant.crystal.idle": "Der Schöpfungskristall ruht – er braucht einen gravierten Kern mit einem Biom",
+  "message.icegiant.crystal.status": "Der Schöpfungskristall formt %s in %s Blöcken Umkreis (Schleichen + leere Hand: Kern herausnehmen)"
 }

@@ -1,0 +1,156 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"Creator_Crystal_Animation": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"Crystalcore": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				},
+				"Crystal": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": ["-math.sin(query.anim_time * 120) * 6", 0, "math.cos(query.anim_time * 100) * 4"]
+						},
+						"1.75": {
+							"vector": ["-math.sin(query.anim_time * 120) * 6", 0, "math.cos(query.anim_time * 100) * 4"]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [0, "math.sin(query.anim_time * 90) * 1", 0]
+						},
+						"1.75": {
+							"vector": [0, "math.sin(query.anim_time * 90) * 1", 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"2.0": {
+							"vector": [1, 1, 1]
+						}
+					}
+				},
+				"Enchantment middle": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-5, 48, 0]
+						},
+						"0.5": {
+							"vector": [-10, 87, 0]
+						},
+						"0.75": {
+							"vector": [-5, 138, 0]
+						},
+						"1.0": {
+							"vector": [0, 183, 0]
+						},
+						"1.25": {
+							"vector": [0, 228, -5]
+						},
+						"1.5": {
+							"vector": [0, 270, -10]
+						},
+						"1.75": {
+							"vector": [0, 313, -5]
+						},
+						"2.0": {
+							"vector": [0, 360, 0]
+						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				},
+				"enchantment top": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.25": {
+							"vector": [-45, 0, -5]
+						},
+						"0.5": {
+							"vector": [-90, 0, -10]
+						},
+						"0.75": {
+							"vector": [-135, 0, -5]
+						},
+						"1.0": {
+							"vector": [-180, 0, 0]
+						},
+						"1.25": {
+							"vector": [-225, 0, 5]
+						},
+						"1.5": {
+							"vector": [-270, 0, 10]
+						},
+						"1.75": {
+							"vector": [-315, 0, 5]
+						},
+						"2.0": {
+							"vector": [-360, 0, 0]
+						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				},
+				"Outershell": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				},
+				"core": {
+					"rotation": {
+						"vector": [0, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				}
+			}
+		}
+	}
+}

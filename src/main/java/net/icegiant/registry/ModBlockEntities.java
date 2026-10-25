@@ -19,4 +19,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<net.icegiant.block.DungeonDoorBlockEntity>> DUNGEON_DOOR =
             BLOCK_ENTITIES.register("dungeon_door", () -> BlockEntityType.Builder.of(
                     net.icegiant.block.DungeonDoorBlockEntity::new, ModBlocks.DUNGEON_DOOR.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<net.icegiant.block.CreationCrystalBlockEntity>> CREATION_CRYSTAL =
+            BLOCK_ENTITIES.register("creation_crystal", () -> BlockEntityType.Builder.of(
+                    net.icegiant.block.CreationCrystalBlockEntity::new,
+                    ModBlocks.CREATION_CRYSTAL.get(), ModBlocks.LARGE_CREATION_CRYSTAL.get()).build(null));
 }

@@ -125,6 +125,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.BONE_PRESSURE_PLATE.get());
                         output.accept(ModItems.FROST_PORTAL.get());
                         output.accept(ModItems.DUNGEON_DOOR.get());
+                        output.accept(ModItems.CREATION_CRYSTAL.get());
+                        output.accept(ModItems.LARGE_CREATION_CRYSTAL.get());
                         output.accept(ModItems.INVISIBLE_LIGHT.get());
                         output.accept(ModItems.CLOUD_WHITE.get());
                         output.accept(ModItems.CLOUD_VERY_LIGHT_GRAY.get());

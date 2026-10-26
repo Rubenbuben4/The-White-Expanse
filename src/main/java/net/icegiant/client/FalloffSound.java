@@ -20,11 +20,12 @@ import net.minecraft.world.phys.Vec3;
  */
 public class FalloffSound extends AbstractTickableSoundInstance {
 
-    private final Entity source;
+    @javax.annotation.Nullable private final Entity source;     // null: stays where it was played
     private final float baseVolume;
     private final float falloff;
 
-    private FalloffSound(SoundEvent event, SoundSource category, Entity source, float volume, float pitch, float falloff) {
+    private FalloffSound(SoundEvent event, SoundSource category, @javax.annotation.Nullable Entity source,
+                         double x, double y, double z, float volume, float pitch, float falloff) {
         super(event, category, SoundInstance.createUnseededRandom());
         this.source = source;
         this.baseVolume = volume;
@@ -33,18 +34,32 @@ public class FalloffSound extends AbstractTickableSoundInstance {
         this.looping = false;
         this.delay = 0;
         this.attenuation = SoundInstance.Attenuation.LINEAR;
+        this.x = x;
+        this.y = y;
+        this.z = z;
         follow();
     }
 
     /** Plays {@code event} at the entity; it fades out completely {@code falloff} blocks away. */
     public static void play(SoundEvent event, SoundSource category, Entity source, float volume, float pitch, float falloff) {
-        Minecraft.getInstance().getSoundManager().play(new FalloffSound(event, category, source, volume, pitch, falloff));
+        Minecraft.getInstance().getSoundManager().play(new FalloffSound(event, category, source,
+                source.getX(), source.getEyeY(), source.getZ(), volume, pitch, falloff));
+    }
+
+    /** Plays {@code event} at a fixed spot (e.g. a footstep); not at all if the listener is further than falloff. */
+    public static void playAt(SoundEvent event, SoundSource category, double x, double y, double z, float volume,
+                              float pitch, float falloff) {
+        Player listener = Minecraft.getInstance().player;
+        if (listener != null && listener.getEyePosition().distanceToSqr(x, y, z) > (double) falloff * falloff) return;
+        Minecraft.getInstance().getSoundManager().play(new FalloffSound(event, category, null, x, y, z, volume, pitch, falloff));
     }
 
     private void follow() {
-        this.x = this.source.getX();
-        this.y = this.source.getEyeY();
-        this.z = this.source.getZ();
+        if (this.source != null) {
+            this.x = this.source.getX();
+            this.y = this.source.getEyeY();
+            this.z = this.source.getZ();
+        }
         Player listener = Minecraft.getInstance().player;
         double d = listener == null ? 0.0D : listener.getEyePosition().distanceTo(new Vec3(this.x, this.y, this.z));
         this.volume = this.baseVolume * (float) Math.max(0.0D, 1.0D - d / this.falloff);

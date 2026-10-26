@@ -87,5 +87,12 @@ public class NetworkHandler {
                 .decoder(BlueFirePacket::decode)
                 .consumerMainThread(BlueFirePacket::handle)
                 .add();
+
+        // How aware an Ice Giant is of you - the eye on the screen (2026-10-26)
+        INSTANCE.messageBuilder(AwarenessPacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(AwarenessPacket::encode)
+                .decoder(AwarenessPacket::decode)
+                .consumerMainThread(AwarenessPacket::handle)
+                .add();
     }
 }

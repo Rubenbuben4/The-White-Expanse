@@ -212,6 +212,14 @@ public class IceGiantEntity extends Monster {
         }
     }
 
+    /** Seeing / hearing players (set in registerGoals, which runs before field initialisers - so no initialiser). */
+    private GiantSensePlayerGoal senses;
+
+    @Nullable
+    public GiantSensePlayerGoal senses() {
+        return this.senses;
+    }
+
     @Override
     public void setTarget(@Nullable LivingEntity target) {
         LivingEntity old = this.getTarget();
@@ -223,6 +231,7 @@ public class IceGiantEntity extends Monster {
     public boolean hurt(DamageSource source, float amount) {
         boolean hurt = super.hurt(source, amount);
         if (hurt && source.getEntity() instanceof LivingEntity attacker) this.requestRoar(attacker);
+        if (hurt && source.getEntity() instanceof Player p && this.senses != null) this.senses.setAwareness(p, GiantSensePlayerGoal.ALERT);
         return hurt;
     }
 
@@ -277,8 +286,14 @@ public class IceGiantEntity extends Monster {
         BlockPos pos = this.getOnPos();
         net.minecraft.world.level.block.state.BlockState state = this.level().getBlockState(pos);
         if (state.isAir()) return;
-        this.playStepSound(pos, state);
-        this.gameEvent(net.minecraft.world.level.gameevent.GameEvent.STEP);
+        if (this.level().isClientSide()) {
+            // 2026-10-26: shaking ground, dust at the foot, heard far away but faint, the ground's own sound
+            boolean left = (index & 1) == 0, running = this.isAggressive();      // (aggressive = chasing, synced)
+            net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                    () -> () -> net.icegiant.client.GiantStepEffects.step(this, pos, state, running, left));
+        } else {
+            this.gameEvent(net.minecraft.world.level.gameevent.GameEvent.STEP);
+        }
     }
 
     /** Chasing a target or smashing through a wall: heavy running stomps (giant-walking-fast recording). */
@@ -309,11 +324,13 @@ public class IceGiantEntity extends Monster {
         this.goalSelector.addGoal(1, new SwordSweepGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.1D, true) /* chase speed x1.1 (was 1.0, 2026-10-02) */);
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 12.0F));
+        // (no LookAtPlayerGoal any more: he would turn to every player near him and see you sneak behind him)
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, net.icegiant.entity.gnoll.GnollEntity.class));
-        // players are sensed through thin walls; sneaking ones only up close (GiantSensePlayerGoal)
-        this.targetSelector.addGoal(2, new GiantSensePlayerGoal(this));
+        // players are seen, heard and felt; awareness in stages - you can sneak past him (GiantSensePlayerGoal, 2026-10-26)
+        this.senses = new GiantSensePlayerGoal(this);
+        this.targetSelector.addGoal(2, this.senses);
+        this.goalSelector.addGoal(3, new GiantInvestigateGoal(this, this.senses));
         // Also fights hostile monsters (zombies, skeletons, spiders, creepers ...), but not
         // neutral ones (Endermen, Zombified Piglins, Piglins), bosses or other Ice Giants.
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false,
@@ -416,17 +433,15 @@ public class IceGiantEntity extends Monster {
     @Override
     public void tick() {
         if (!this.level().isClientSide() && !this.isDeadOrDying()) this.tickRoar();
+        if (!this.level().isClientSide() && !this.isDeadOrDying() && this.senses != null) this.senses.tickSenses();
         if (this.escortPending && this.level() instanceof net.minecraft.server.level.ServerLevel server) {
             this.escortPending = false;
             net.icegiant.entity.gnoll.GnollEntity.spawnEscort(server, this,
                     server.getCurrentDifficultyAt(this.blockPosition()));
         }
         super.tick();
-        if (this.level().isClientSide()) {
-            this.tickBreath();
-        } else if (!this.isDeadOrDying()) {
-            this.tickFootsteps();
-        }
+        if (this.level().isClientSide()) this.tickBreath();
+        if (!this.isDeadOrDying()) this.tickFootsteps();    // (both sides: the clients do sound, dust and shaking)
         this.grabPhaseTicks++;
         // a held creature without an active grab (e.g. after a world reload) is let go
         if (!this.level().isClientSide() && !isGrabbing() && this.isVehicle()) {

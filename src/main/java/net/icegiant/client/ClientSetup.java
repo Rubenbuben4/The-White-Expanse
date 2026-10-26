@@ -81,5 +81,7 @@ public class ClientSetup {
         event.registerAbove(VanillaGuiOverlay.PORTAL.id(), FrostPortalOverlay.OVERLAY_ID, FrostPortalOverlay::render);
         // blue flames at the bottom of the screen while you burn in them (Giant Rune Sword 2.0), under the rest of the GUI
         event.registerBelowAll(BlueFireClient.OVERLAY_ID, BlueFireClient::renderOverlay);
+        // the eye above the crosshair: how close an Ice Giant is to noticing you (2026-10-26)
+        event.registerAbove(VanillaGuiOverlay.CROSSHAIR.id(), AwarenessHud.OVERLAY_ID, AwarenessHud::render);
     }
 }

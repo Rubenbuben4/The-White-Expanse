@@ -30,6 +30,7 @@ echte Kunst ersetzt:
 | Datei / File | Was / What |
 |---|---|
 | `textures/particle/nordic_axe_slash_0…8.png` | Schlag-Partikel der Äxte / axe slash particle |
+| `textures/gui/awareness_eye.png` | Auge über dem Fadenkreuz (Aufmerksamkeit der Eisriesen) / eye above the crosshair (Ice Giant awareness) |
 | `textures/mob_effect/stun.png` | Icon „Betäubt“ / "Stunned" effect icon |
 | `textures/mob_effect/knocked_down.png` | Icon „Niedergeworfen“ / "Knocked Down" effect icon |
 | `textures/mob_effect/earthquake.png` | Icon „Erdbeben“ (wird ausgeblendet) / "Earthquake" icon (hidden in game) |

@@ -57,27 +57,33 @@
     "sounds": [
       {
         "name": "icegiant:ice_giant/run_step_1",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       },
       {
         "name": "icegiant:ice_giant/run_step_2",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       },
       {
         "name": "icegiant:ice_giant/run_step_3",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       },
       {
         "name": "icegiant:ice_giant/run_step_4",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       },
       {
         "name": "icegiant:ice_giant/run_step_5",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       },
       {
         "name": "icegiant:ice_giant/run_step_6",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 56
       }
     ]
   },
@@ -86,27 +92,33 @@
     "sounds": [
       {
         "name": "icegiant:ice_giant/walk_step_1",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       },
       {
         "name": "icegiant:ice_giant/walk_step_2",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       },
       {
         "name": "icegiant:ice_giant/walk_step_3",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       },
       {
         "name": "icegiant:ice_giant/walk_step_4",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       },
       {
         "name": "icegiant:ice_giant/walk_step_5",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       },
       {
         "name": "icegiant:ice_giant/walk_step_6",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 40
       }
     ]
   },

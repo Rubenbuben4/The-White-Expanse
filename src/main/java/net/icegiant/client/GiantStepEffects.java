@@ -28,7 +28,7 @@ import net.minecraftforge.fml.common.Mod;
  *   <li>the giant's step sound, heard far away but faint, loud close by (FalloffSound; walking 40, running 56 blocks);</li>
  *   <li>the ground's own step sound, deep and only close by - snow crunches, ice clinks, stone thuds;</li>
  *   <li>a cloud of the ground's dust at the foot (and snowflakes on snow), bigger when he runs;</li>
- *   <li>the ground shakes - the camera trembles briefly, the closer the stronger (up to 24 blocks).</li>
+ *   <li>the ground shakes - the camera trembles briefly, the closer the stronger (up to 8 blocks).</li>
  * </ul>
  */
 @Mod.EventBusSubscriber(modid = IceGiantMod.MOD_ID, value = Dist.CLIENT)
@@ -38,7 +38,7 @@ public final class GiantStepEffects {
     static final float GROUND_VOLUME = 0.9F, GROUND_PITCH = 0.55F;
     static final double FOOT_SIDE = 0.12D;                     // legs are 1.9 px off the middle of the player model
     static final int DUST_WALK = 10, DUST_RUN = 18;
-    static final double SHAKE_RANGE = 24.0D;
+    static final double SHAKE_RANGE = 8.0D;                  // (2026-10-26: was 24 - Rubenbuben4: 6 - 8 blocks)
     static final float SHAKE_DEGREES = 1.4F, SHAKE_TICKS = 8.0F, SHAKE_WALK = 0.6F, SHAKE_RUN = 1.0F;
 
     private static float shake;

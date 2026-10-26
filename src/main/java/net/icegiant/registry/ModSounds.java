@@ -46,6 +46,10 @@ public class ModSounds {
     // death: painful cry (the giant's own pain voice, deeper and slower) and the thump of hitting the ground
     public static final RegistryObject<SoundEvent> ICE_GIANT_DEATH = registerSound("ice_giant.death");
     public static final RegistryObject<SoundEvent> ICE_GIANT_FALL = registerSound("ice_giant.fall");
+    // Schöpfungskristalle (2026-10-25/26, Rubenbuben4's picks from Pixabay, mono so they fade with distance)
+    public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_AWAKEN = registerSound("creation_crystal.awaken");
+    public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_ASLEEP = registerSound("creation_crystal.asleep");
+    public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_AMBIENT = registerSound("creation_crystal.ambient");
 
     // Gnolls - sounds from the "Gnolls" entity pack by Hibiscus Studios x AnonymousDevs (used with permission)
     public static final RegistryObject<SoundEvent> GNOLL_IDLE = registerSound("gnoll.idle");

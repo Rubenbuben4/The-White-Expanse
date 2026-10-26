@@ -221,5 +221,8 @@
   "message.icegiant.crystal.awakened": "The Creation Crystal awakens: %s within %s blocks",
   "message.icegiant.crystal.asleep": "The Creation Crystal falls asleep – the land returns",
   "message.icegiant.crystal.idle": "The Creation Crystal rests – it needs an engraved core that carries a biome",
-  "message.icegiant.crystal.status": "The Creation Crystal shapes %s within %s blocks (sneak + empty hand: take the core out)"
+  "message.icegiant.crystal.status": "The Creation Crystal shapes %s within %s blocks (sneak + empty hand: take the core out)",
+  "subtitles.icegiant.creation_crystal_awaken": "Creation Crystal awakens",
+  "subtitles.icegiant.creation_crystal_asleep": "Creation Crystal falls asleep",
+  "subtitles.icegiant.creation_crystal_ambient": "Creation Crystal hums"
 }

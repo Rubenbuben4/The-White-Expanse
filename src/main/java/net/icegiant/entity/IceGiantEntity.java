@@ -105,6 +105,8 @@ public class IceGiantEntity extends Monster {
     private static final int ROAR_ALERT_TICK = 12;         // the Gnolls react at the peak of the scream
     private static final double ROAR_RALLY_RADIUS = 40.0D;
     private static final int ROAR_PENDING_MAX = 60;         // a cry that had to wait is dropped after 3 s
+    /** The roar fades out completely this far away (plus Minecraft's own fading over 64 blocks, sounds.json). */
+    static final float ROAR_FALLOFF = 56.0F;
     private static final net.minecraft.network.syncher.EntityDataAccessor<Boolean> DATA_ROARING =
             net.minecraft.network.syncher.SynchedEntityData.defineId(IceGiantEntity.class,
                     net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
@@ -149,8 +151,7 @@ public class IceGiantEntity extends Monster {
                 this.roarTicks = ROAR_TICKS;
                 this.roarCooldown = ROAR_COOLDOWN;
                 this.entityData.set(DATA_ROARING, true);
-                this.playSound(net.icegiant.registry.ModSounds.ICE_GIANT_ROAR.get(), 4.0F,
-                        0.97F + this.random.nextFloat() * 0.06F);
+                // (the roar sound is played on the clients - onSyncedDataUpdated - so it can fade with distance)
             }
         }
         if (this.roarTicks > 0) {
@@ -353,7 +354,16 @@ public class IceGiantEntity extends Monster {
     @Override
     public void onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor<?> key) {
         super.onSyncedDataUpdated(key);
-        if (DATA_ROARING.equals(key) && this.entityData.get(DATA_ROARING)) this.clientRoarStart = this.tickCount;
+        if (DATA_ROARING.equals(key) && this.entityData.get(DATA_ROARING)) {
+            this.clientRoarStart = this.tickCount;
+            if (this.level().isClientSide()) {
+                // loud close by, clearly quieter further away (Rubenbuben4, 2026-10-26) - FalloffSound
+                float pitch = 0.97F + this.random.nextFloat() * 0.06F;
+                net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                        () -> () -> net.icegiant.client.FalloffSound.play(net.icegiant.registry.ModSounds.ICE_GIANT_ROAR.get(),
+                                this.getSoundSource(), this, 1.0F, pitch, ROAR_FALLOFF));
+            }
+        }
         if (DATA_GRAB_PHASE.equals(key)) this.grabPhaseTicks = 0;
     }
 

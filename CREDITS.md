@@ -161,6 +161,17 @@ In 6 einzelne Schritte geschnitten, mono, OGG (`assets/icegiant/sounds/ice_giant
 
 *"Giant Walking Fast" by freesound_community (Pixabay), cut into single steps; Pixabay Content License, not covered by the GPL.*
 
+## Sounds – Schöpfungskristalle / Creation Crystals – freesound_community & magiaz (Pixabay)
+Von Rubenbuben4 ausgesucht (Pixabay, https://pixabay.com/sound-effects/), nach mono umgewandelt (damit sie mit der Entfernung leiser werden), im Pegel angeglichen, am Ende kurz ausgeblendet, OGG (`assets/icegiant/sounds/creation_crystal/`):
+- „Crystal Sound Effect“ (#47917) von **freesound_community** – Erwachen (`awaken.ogg`)
+- „Crystal“ (#388664) von **magiaz** – Einschlafen (`asleep.ogg`)
+- „Crystal Bowl Ab4“ (#106673) von **freesound_community** – Summen (`ambient_bowl.ogg`)
+- „Mystic Whistle“ (#105455) von **freesound_community** – Summen (`ambient_whistle.ogg`)
+
+Pixabay-Inhaltslizenz, **nicht** GPL. (Titel aus den Dateinamen abgeleitet.)
+
+*Creation Crystal sounds picked by Rubenbuben4 on Pixabay ("Crystal Sound Effect", "Crystal Bowl Ab4", "Mystic Whistle" by freesound_community; "Crystal" by magiaz), converted to mono OGG and level-matched; Pixabay Content License, not covered by the GPL.*
+
 ## Sounds – Eisriesen-Gehen & Schmerzlaute / Ice Giant walking & pain – Rubenbuben4
 Selbst aufgenommen und zusammengestellt von **Rubenbuben4**:
 - **Geh-Schritte** („Giant footsteps“) – in 6 einzelne Schritte geschnitten (`assets/icegiant/sounds/ice_giant/walk_step_1…6.ogg`)

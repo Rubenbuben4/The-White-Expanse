@@ -315,7 +315,8 @@
     "sounds": [
       {
         "name": "icegiant:ice_giant/roar",
-        "stream": false
+        "stream": false,
+        "attenuation_distance": 64
       }
     ]
   },
@@ -414,6 +415,45 @@
       {
         "name": "icegiant:giant_rune_sword/ground_cut",
         "stream": false
+      }
+    ]
+  },
+  "creation_crystal.awaken": {
+    "subtitle": "subtitles.icegiant.creation_crystal_awaken",
+    "sounds": [
+      {
+        "name": "icegiant:creation_crystal/awaken",
+        "stream": false,
+        "attenuation_distance": 24,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creation_crystal.asleep": {
+    "subtitle": "subtitles.icegiant.creation_crystal_asleep",
+    "sounds": [
+      {
+        "name": "icegiant:creation_crystal/asleep",
+        "stream": false,
+        "attenuation_distance": 24,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creation_crystal.ambient": {
+    "subtitle": "subtitles.icegiant.creation_crystal_ambient",
+    "sounds": [
+      {
+        "name": "icegiant:creation_crystal/ambient_bowl",
+        "stream": false,
+        "attenuation_distance": 16,
+        "volume": 1.0
+      },
+      {
+        "name": "icegiant:creation_crystal/ambient_whistle",
+        "stream": false,
+        "attenuation_distance": 16,
+        "volume": 1.0
       }
     ]
   }

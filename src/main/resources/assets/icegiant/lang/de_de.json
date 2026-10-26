@@ -221,5 +221,8 @@
   "message.icegiant.crystal.awakened": "Der Schöpfungskristall erwacht: %s in %s Blöcken Umkreis",
   "message.icegiant.crystal.asleep": "Der Schöpfungskristall schläft wieder – das Land kehrt zurück",
   "message.icegiant.crystal.idle": "Der Schöpfungskristall ruht – er braucht einen gravierten Kern mit einem Biom",
-  "message.icegiant.crystal.status": "Der Schöpfungskristall formt %s in %s Blöcken Umkreis (Schleichen + leere Hand: Kern herausnehmen)"
+  "message.icegiant.crystal.status": "Der Schöpfungskristall formt %s in %s Blöcken Umkreis (Schleichen + leere Hand: Kern herausnehmen)",
+  "subtitles.icegiant.creation_crystal_awaken": "Schöpfungskristall erwacht",
+  "subtitles.icegiant.creation_crystal_asleep": "Schöpfungskristall schläft ein",
+  "subtitles.icegiant.creation_crystal_ambient": "Schöpfungskristall summt"
 }

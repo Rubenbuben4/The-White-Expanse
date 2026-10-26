@@ -7,7 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -106,7 +105,7 @@ public class CreationCrystalBlock extends Block implements EntityBlock {
             CreationCrystals.activate(server, center, radius(), biome);
             setActive(level, center, true);
             level.sendBlockUpdated(center, level.getBlockState(center), level.getBlockState(center), 3);
-            level.playSound(null, center, SoundEvents.BEACON_ACTIVATE, SoundSource.BLOCKS, 1.0F, 1.4F);
+            level.playSound(null, center, net.icegiant.registry.ModSounds.CREATION_CRYSTAL_AWAKEN.get(), SoundSource.BLOCKS, 0.9F, 1.0F);
             player.displayClientMessage(Component.translatable("message.icegiant.crystal.awakened",
                     IceGiantCoreItem.biomeName(biome), radius()).withStyle(ChatFormatting.AQUA), true);
             return InteractionResult.CONSUME;
@@ -118,7 +117,7 @@ public class CreationCrystalBlock extends Block implements EntityBlock {
             CreationCrystals.deactivate(server, center);
             setActive(level, center, false);
             level.sendBlockUpdated(center, level.getBlockState(center), level.getBlockState(center), 3);
-            level.playSound(null, center, SoundEvents.BEACON_DEACTIVATE, SoundSource.BLOCKS, 1.0F, 1.4F);
+            level.playSound(null, center, net.icegiant.registry.ModSounds.CREATION_CRYSTAL_ASLEEP.get(), SoundSource.BLOCKS, 0.9F, 1.0F);
             player.displayClientMessage(Component.translatable("message.icegiant.crystal.asleep").withStyle(ChatFormatting.GRAY), true);
             return InteractionResult.CONSUME;
         }
@@ -146,6 +145,16 @@ public class CreationCrystalBlock extends Block implements EntityBlock {
             crystal.setCore(ItemStack.EMPTY);
         }
         CreationCrystals.deactivate(server, center);
+    }
+
+    /** Client: enchanting-table glyphs flying in, and its soft sounds (CreationCrystalEffects). */
+    @Nullable
+    @Override
+    @SuppressWarnings("unchecked")
+    public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(
+            Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
+        if (!level.isClientSide() || type != net.icegiant.registry.ModBlockEntities.CREATION_CRYSTAL.get()) return null;
+        return (l, p, s, be) -> CreationCrystalEffects.clientTick(l, p, s, (CreationCrystalBlockEntity) be);
     }
 
     @Override

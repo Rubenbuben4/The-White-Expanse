@@ -94,5 +94,17 @@ public class NetworkHandler {
                 .decoder(AwarenessPacket::decode)
                 .consumerMainThread(AwarenessPacket::handle)
                 .add();
+
+        // Slimes (2026-10-27): bodies they leave, tint of their jelly
+        INSTANCE.messageBuilder(CorpsePacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(CorpsePacket::encode)
+                .decoder(CorpsePacket::decode)
+                .consumerMainThread(CorpsePacket::handle)
+                .add();
+        INSTANCE.messageBuilder(SlimeTintPacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(SlimeTintPacket::encode)
+                .decoder(SlimeTintPacket::decode)
+                .consumerMainThread(SlimeTintPacket::handle)
+                .add();
     }
 }

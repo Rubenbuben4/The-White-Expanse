@@ -224,5 +224,6 @@
   "message.icegiant.crystal.status": "Der Schöpfungskristall formt %s in %s Blöcken Umkreis (Schleichen + leere Hand: Kern herausnehmen)",
   "subtitles.icegiant.creation_crystal_awaken": "Schöpfungskristall erwacht",
   "subtitles.icegiant.creation_crystal_asleep": "Schöpfungskristall schläft ein",
-  "subtitles.icegiant.creation_crystal_ambient": "Schöpfungskristall summt"
+  "subtitles.icegiant.creation_crystal_ambient": "Schöpfungskristall summt",
+  "subtitles.icegiant.slime_crawl": "Slime glibbert"
 }

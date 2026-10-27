@@ -6,7 +6,9 @@
   "refmap": "icegiant.refmap.json",
   "client": [
     "PlayerModelArmMixin",
-    "ItemInHandRendererMixin"
+    "ItemInHandRendererMixin",
+    "LivingEntityRendererCorpseMixin",
+    "SlimeOuterLayerTintMixin"
   ],
   "mixins": [
     "EntityGrabRiderMixin",
@@ -25,6 +27,9 @@
     "FishCurrentMixin",
     "GlowIceMeltMixin",
     "GlowIceSnowMixin",
-    "LeavesPassMixin"
+    "LeavesPassMixin",
+    "SlimeInvoker",
+    "MobMoveControlAccessor",
+    "SlimeSizeMixin"
   ]
 }

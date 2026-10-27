@@ -50,6 +50,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_AWAKEN = registerSound("creation_crystal.awaken");
     public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_ASLEEP = registerSound("creation_crystal.asleep");
     public static final RegistryObject<SoundEvent> CREATION_CRYSTAL_AMBIENT = registerSound("creation_crystal.ambient");
+    // Slimes crawling over the ground (2026-10-27, Rubenbuben4's "Slime moving" recording)
+    public static final RegistryObject<SoundEvent> SLIME_CRAWL = registerSound("slime.crawl");
 
     // Gnolls - sounds from the "Gnolls" entity pack by Hibiscus Studios x AnonymousDevs (used with permission)
     public static final RegistryObject<SoundEvent> GNOLL_IDLE = registerSound("gnoll.idle");

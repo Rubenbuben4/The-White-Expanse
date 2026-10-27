@@ -173,6 +173,11 @@ Pixabay-Inhaltslizenz, **nicht** GPL. (Titel aus den Dateinamen abgeleitet.)
 
 *Creation Crystal sounds picked by Rubenbuben4 on Pixabay ("Crystal Sound Effect", "Crystal Bowl Ab4", "Mystic Whistle" by freesound_community; "Crystal" by magiaz), converted to mono OGG and level-matched; Pixabay Content License, not covered by the GPL.*
 
+## Sound – Kriechende Slimes / Crawling slimes – Rubenbuben4
+„Slime moving“ – von Rubenbuben4 bereitgestellt; der lebhafteste Teil (9,4 s) als Schleife geschnitten, mono, in der Lautheit angeglichen (`assets/icegiant/sounds/slime/crawl.ogg`).
+
+*"Slime moving" provided by Rubenbuben4, cut into a 9.4 s loop, mono, loudness-matched.*
+
 ## Sounds – Eisriesen-Gehen & Schmerzlaute / Ice Giant walking & pain – Rubenbuben4
 Selbst aufgenommen und zusammengestellt von **Rubenbuben4**:
 - **Geh-Schritte** („Giant footsteps“) – in 6 einzelne Schritte geschnitten (`assets/icegiant/sounds/ice_giant/walk_step_1…6.ogg`)

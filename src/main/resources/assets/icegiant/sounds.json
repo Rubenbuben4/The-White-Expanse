@@ -468,5 +468,15 @@
         "volume": 1.0
       }
     ]
+  },
+  "slime.crawl": {
+    "subtitle": "subtitles.icegiant.slime_crawl",
+    "sounds": [
+      {
+        "name": "icegiant:slime/crawl",
+        "stream": false,
+        "attenuation_distance": 12
+      }
+    ]
   }
 }

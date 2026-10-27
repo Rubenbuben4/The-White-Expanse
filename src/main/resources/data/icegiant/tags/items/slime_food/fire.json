@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:magma_cream",
+    "minecraft:blaze_rod",
+    "minecraft:blaze_powder",
+    "minecraft:magma_block"
+  ]
+}

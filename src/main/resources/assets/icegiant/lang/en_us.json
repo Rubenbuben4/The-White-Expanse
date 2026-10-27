@@ -224,5 +224,6 @@
   "message.icegiant.crystal.status": "The Creation Crystal shapes %s within %s blocks (sneak + empty hand: take the core out)",
   "subtitles.icegiant.creation_crystal_awaken": "Creation Crystal awakens",
   "subtitles.icegiant.creation_crystal_asleep": "Creation Crystal falls asleep",
-  "subtitles.icegiant.creation_crystal_ambient": "Creation Crystal hums"
+  "subtitles.icegiant.creation_crystal_ambient": "Creation Crystal hums",
+  "subtitles.icegiant.slime_crawl": "Slime squelches"
 }

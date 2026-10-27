@@ -106,5 +106,10 @@ public class NetworkHandler {
                 .decoder(SlimeTintPacket::decode)
                 .consumerMainThread(SlimeTintPacket::handle)
                 .add();
+        INSTANCE.messageBuilder(SlimeShapePacket.class, packetId++, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(SlimeShapePacket::encode)
+                .decoder(SlimeShapePacket::decode)
+                .consumerMainThread(SlimeShapePacket::handle)
+                .add();
     }
 }

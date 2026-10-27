@@ -181,6 +181,7 @@ public final class SlimeGoals {
         @Override
         public void stop() {
             if (this.body != null) SlimeCorpses.release(this.body, this.s);
+            SlimeShape.release(this.s);
             this.body = null;
             this.s.getNavigation().stop();
         }
@@ -194,17 +195,20 @@ public final class SlimeGoals {
         public void tick() {
             if (this.body == null) return;
             this.ticks++;
-            if (!crawlOnto(this.s, this.body.position(), this.ticks)) return;
+            Vec3 mid = SlimeShape.bodyCenter(this.body);                 // sits on the middle of the body
+            if (!crawlOnto(this.s, mid, this.ticks)) return;
+            if (this.eaten == 0) SlimeShape.coverBody(this.s, this.body); // bigger than him: stretches over it
             this.eaten++;
             if (this.eaten % 10 == 0 && this.s.level() instanceof ServerLevel level) {
                 ItemStack crumb = SlimeFood.corpseCrumb(this.body instanceof AbstractSkeleton);
-                level.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, crumb), this.body.getX(), this.body.getY() + 0.3D,
-                        this.body.getZ(), 4, 0.3D, 0.1D, 0.3D, 0.04D);
+                level.sendParticles(new ItemParticleOption(ParticleTypes.ITEM, crumb), mid.x, mid.y + 0.3D,
+                        mid.z, 4, 0.3D, 0.1D, 0.3D, 0.04D);
                 this.s.playSound(this.eaten % 20 == 0 ? SoundEvents.GENERIC_EAT : SoundEvents.SLIME_SQUISH_SMALL,
                         0.6F, 0.5F + this.s.getRandom().nextFloat() * 0.2F);
             }
             if (this.eaten >= CORPSE_EAT_TICKS) {
                 this.body.discard();
+                SlimeShape.release(this.s);                              // before he grows, so he pulls together into the new size
                 SlimeFood.eatCorpse(this.s);
                 this.body = null;
             }
@@ -331,6 +335,7 @@ public final class SlimeGoals {
         @Override
         public void stop() {
             this.spot = null;
+            SlimeShape.release(this.s);
             this.s.getNavigation().stop();
         }
 
@@ -351,6 +356,7 @@ public final class SlimeGoals {
                 this.spot = null;
                 return;
             }
+            if (this.chew == 0) SlimeShape.coverSpot(this.s, this.spot);   // a small slime spreads over the plant
             this.chew++;
             if (this.chew % 20 == 0 && this.s.level() instanceof ServerLevel level) {
                 BlockState shown = isPlant ? plant : below;

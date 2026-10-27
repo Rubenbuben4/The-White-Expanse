@@ -8,7 +8,9 @@
     "PlayerModelArmMixin",
     "ItemInHandRendererMixin",
     "LivingEntityRendererCorpseMixin",
-    "SlimeOuterLayerTintMixin"
+    "SlimeOuterLayerTintMixin",
+    "SlimeRendererShapeMixin",
+    "MagmaCubeRendererShapeMixin"
   ],
   "mixins": [
     "EntityGrabRiderMixin",

@@ -98,6 +98,7 @@ public final class SlimeLife {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         if (event.getTarget() instanceof Slime s) {
             NetworkHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new SlimeTintPacket(s.getId(), SlimeFood.tint(s)));
+            SlimeShape.sendTo(player, s);
         } else if (event.getTarget() instanceof LivingEntity e && e.isDeadOrDying() && SlimeCorpses.isCorpse(e)) {
             NetworkHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new CorpsePacket(e.getId()));
         }
@@ -105,9 +106,13 @@ public final class SlimeLife {
 
     @SubscribeEvent
     public static void onLeave(EntityLeaveLevelEvent event) {
-        if (!event.getLevel().isClientSide()) return;
+        if (!event.getLevel().isClientSide()) {
+            SlimeShape.forget(event.getEntity());
+            return;
+        }
         SlimeCorpses.CLIENT.remove(event.getEntity().getId());
         CLIENT_TINT.remove(event.getEntity().getId());
+        SlimeShape.CLIENT.remove(event.getEntity().getId());
     }
 
     static void syncTint(Slime s) {

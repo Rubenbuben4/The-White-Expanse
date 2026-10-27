@@ -2,7 +2,7 @@
 
 *Früher „Ice Giant“ / formerly "Ice Giant" (Mod-ID `icegiant`).*
 
-Von / by **Rubenbuben4**. **Pre-Alpha** (0.2.72) – frühe Testversion / early test version. Quellcode / source: https://github.com/Rubenbuben4/The-White-Expanse · Modrinth: Link folgt / link follows.
+Von / by **Rubenbuben4**. **Pre-Alpha** (0.2.80) – frühe Testversion / early test version. Quellcode / source: https://github.com/Rubenbuben4/The-White-Expanse · Modrinth: Link folgt / link follows.
 
 > ### 🤖 Hinweis / Disclaimer
 > **Der Großteil des Codes wurde mit Claude (KI von Anthropic) geschrieben**, nach Rubenbuben4s Vorgaben und Tests.
@@ -43,7 +43,7 @@ Alles im Kreativ-Tab **„The White Expanse“** / everything in the creative ta
 ```
 gradlew build
 ```
-Die fertige Datei liegt danach in `build/libs/the-white-expanse-<version>.jar` (z. B. / e.g. `the-white-expanse-0.2.72.jar`).
+Die fertige Datei liegt danach in `build/libs/the-white-expanse-<version>.jar` (z. B. / e.g. `the-white-expanse-0.2.80.jar`).
 
 ## Lizenz / License
 Code: **GPL-3.0-or-later** (siehe / see [LICENSE](LICENSE)).

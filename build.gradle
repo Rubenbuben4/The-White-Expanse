@@ -6,7 +6,7 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '0.2.72'
+version = '0.2.80'
 group = 'net.icegiant'
 base { archivesName = 'the-white-expanse' }
 
